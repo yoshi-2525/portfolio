@@ -4,38 +4,43 @@ import { cardColors, accentColors } from "@/styles/palette";
 export const dreams: Dream[] = [
   {
     id: 1,
-    title: "UI/UXデザイナー",
-    subtitle: "美しく、使いやすいものを創る",
+    title: "社会に有意義なものを創りあげる",
+    subtitle: "誰かに何かをもたらすことで意義が生まれる",
     description:
-      "人の心を動かすインターフェースを設計し、使う人が自然と笑顔になるようなプロダクトを生み出したい。デザインとエンジニアリングの両方を深く理解したデザイナーとして、チームの橋渡しになりたいと思っています。",
+      "誰かに何かをもたらすことで、私は生きる意義が生まれるのではないかと思っています。移り変わりの激しい世の中で、誰に何を届けたいか、世の中にどのような影響をもたらしたいのかをしっかり考え、誰かの内面を豊かにできる製品を創りつづけていきたいです。",
     icon: "✦",
     color: cardColors.blue,
-    accentColor: accentColors.blue,
-    progress: 65,
-    steps: ["Figma を極める", "デザインシステムを構築する", "ユーザーリサーチを学ぶ", "ポートフォリオを充実させる"],
+    accentColor: accentColors.blue
   },
   {
     id: 2,
-    title: "プロダクトエンジニア",
-    subtitle: "アイデアをコードで形にする",
+    title: "現象学の知見を用いたデザイン理論の構築",
+    subtitle: "先達の智慧を借りながら、私なりの理論を構築する",
     description:
       "ゼロからプロダクトを作り上げる力を持つエンジニアを目指しています。フロントエンドだけでなく、バックエンドやインフラまで理解し、ひとりでもサービスをリリースできる能力を身につけたいと考えています。",
     icon: "◈",
     color: cardColors.coral,
     accentColor: accentColors.coral,
-    progress: 50,
-    steps: ["React を極める", "Next.js でフルスタック開発", "バックエンドAPI設計を学ぶ", "個人サービスをリリースする"],
   },
   {
     id: 3,
-    title: "創造的な研究者",
+    title: "展示会やワークショップの企画・開催",
     subtitle: "美学と技術の交差点で考える",
     description:
       "哲学・美学の視点からデジタルプロダクトを捉え、「良いデザインとは何か」という問いに答えを持つ研究者でありたい。学会発表や論文執筆を通じて、創造的な知見を社会に還元したいと思っています。",
     icon: "❋",
     color: cardColors.purple,
     accentColor: accentColors.purple,
-    progress: 30,
-    steps: ["美学・哲学の文献を読む", "デザイン研究の方法論を習得する", "学会に参加する", "論文を執筆する"],
+    
+  },
+  {
+    id: 4,
+    title: "欲望のエデュケーション",
+    subtitle: "美学と技術の交差点で考える",
+    description:
+      "哲学・美学の視点からデジタルプロダクトを捉え、「良いデザインとは何か」という問いに答えを持つ研究者でありたい。学会発表や論文執筆を通じて、創造的な知見を社会に還元したいと思っています。",
+    icon: "❋",
+    color: cardColors.gray,
+    accentColor: accentColors.purple,
   },
 ];

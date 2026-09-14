@@ -1,12 +1,9 @@
-import { useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import PageHeading from "@/components/PageHeading";
 import DreamCard from "@/components/DreamCard";
 import { dreams } from "@/data/dreams";
 
 export default function DreamsPage() {
-  const [expanded, setExpanded] = useState<number | null>(1);
-
   return (
     <div
       className="min-h-screen"
@@ -22,7 +19,7 @@ export default function DreamsPage() {
           description={
             <>
               創作を通して為したいことを書き留めています。<br />
-              私に見せたい景色を、ここに描いています。
+              未来の私に見せたい景色を、ここに描いています。
             </>
           }
         />
@@ -30,22 +27,8 @@ export default function DreamsPage() {
         {/* Dream cards */}
         <div className="flex flex-col gap-6">
           {dreams.map((dream) => (
-            <DreamCard
-              key={dream.id}
-              dream={dream}
-              isOpen={expanded === dream.id}
-              onToggle={() => setExpanded(expanded === dream.id ? null : dream.id)}
-            />
+            <DreamCard key={dream.id} dream={dream} />
           ))}
-        </div>
-
-        {/* Closing message */}
-        <div className="mt-20 text-center">
-          <div className="inline-block bg-[#d57563] border-2 border-[#222] rounded-full px-10 py-4">
-            <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-white text-lg tracking-[1.5px]">
-              ただひたすらに、ものを創り続ける
-            </p>
-          </div>
         </div>
       </main>
 
