@@ -1,0 +1,10 @@
+{
+  "description": "Showcase your skills and aspirations with a portfolio web app that includes a learning log and a dream goals section for personal growth.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
