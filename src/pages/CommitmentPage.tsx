@@ -5,6 +5,7 @@ import PageHeading from "@/components/PageHeading";
 import CommitmentNavItem from "@/components/CommitmentNavItem";
 import CommitmentCard from "@/components/CommitmentCard";
 import { principles } from "@/data/principles";
+import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
 
 export default function CommitmentPage() {
   const [active, setActive] = useState<number>(0);
@@ -23,16 +24,16 @@ export default function CommitmentPage() {
           title="創作へのこだわり"
           description={
             <>
-              デザインからプログラミング、設計まで、<br />
-              私がものを創るうえで大切にしていることを書き留めています。
+              私がものを創るうえで大切にしている姿勢を書き留めています。
             </>
           }
+          illustrationSrc={imgDreamsHero}
         />
 
         {/* Two-panel layout */}
         <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
           {/* Left: principle list */}
-          <nav className="flex flex-col gap-2 sticky top-8">
+          <nav className="flex flex-col gap-4 sticky top-8">
             {principles.map((p, i) => (
               <CommitmentNavItem
                 key={p.no}

@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 const NAV = [
   { label: "ホーム", to: "/" },
@@ -10,8 +10,10 @@ const NAV = [
 ];
 
 export default function SiteHeader() {
+  const { pathname } = useLocation();
+
   return (
-    <header className="flex items-center justify-between px-10 py-6 border-b border-[#e0d8d0] bg-[#faf2eb]">
+    <header className="flex items-center justify-between px-8 py-4 border-b-2 border-[#e0d8d0] bg-[#faf2eb]">
       <Link
         to="/"
         className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-2xl tracking-[1.76px]"
@@ -23,7 +25,9 @@ export default function SiteHeader() {
           <Link
             key={label}
             to={to}
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[17.6px] tracking-[1.1px] px-3 py-3 text-[#222] hover:text-[#d57563] transition-colors"
+            className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
+              pathname === to ? "text-[#d57563]" : "text-[#222]"
+            }`}
           >
             {label}
           </Link>

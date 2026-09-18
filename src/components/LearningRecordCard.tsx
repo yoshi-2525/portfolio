@@ -1,28 +1,45 @@
+import type { CSSProperties } from "react";
+import { Link } from "react-router";
+
+export type LearningContentBlock =
+  | { type: "heading"; text: string }
+  | { type: "body"; text: string }
+  | { type: "image"; image: string };
+
 export type LearningRecord = {
+  id: number;
   date: string;
   category: string;
   title: string;
   description: string;
-  tags: string[];
   color: string;
+  accentColor: string;
+  content: LearningContentBlock[];
 };
 
 type LearningRecordCardProps = {
   record: LearningRecord;
+  index?: number;
 };
 
-export default function LearningRecordCard({ record }: LearningRecordCardProps) {
+export default function LearningRecordCard({ record, index = 0 }: LearningRecordCardProps) {
   return (
-    <div
-      className="rounded-[20px] border-2 border-[#222] overflow-hidden group hover:shadow-lg transition-shadow"
-      style={{ backgroundColor: record.color }}
+    <Link
+      to={`/learning/${record.id}`}
+      className="h-full flex flex-col rounded-[20px] border-2 border-[#e0d8d0] shadow hover:border-[var(--accent)] overflow-hidden group hover:shadow-lg transition-shadow animate-fade-in-up"
+      style={{
+        "--accent": record.accentColor,
+        backgroundColor: record.color,
+        animationDelay: `${index * 100}ms`,
+      } as CSSProperties}
     >
-      {/* Color band */}
-      <div className="h-1.5 bg-[#d57563]" />
 
-      <div className="p-7">
+      <div className="flex flex-col flex-1 p-7">
         <div className="flex items-center justify-between mb-4">
-          <span className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-xs text-[#3280cf] tracking-[1px]">
+          <span
+            className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-xs tracking-[1px] px-3 py-1 rounded-full bg-white"
+            style={{ color: record.accentColor }}
+          >
             {record.category}
           </span>
           <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-xs text-[#666] tracking-[0.5px]">
@@ -38,17 +55,13 @@ export default function LearningRecordCard({ record }: LearningRecordCardProps) 
           {record.description}
         </p>
 
-        <div className="flex flex-wrap gap-2">
-          {record.tags.map((tag) => (
-            <span
-              key={tag}
-              className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-xs px-3 py-1 rounded-full bg-white border border-[#ccc] text-[#555] tracking-[0.5px]"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        <span
+          className="mt-auto inline-flex items-center gap-2 font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm tracking-[1px] transition-colors"
+          style={{ color: record.accentColor }}
+        >
+          詳しく見る →
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }

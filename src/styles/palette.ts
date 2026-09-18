@@ -24,6 +24,7 @@ export const accentColors = {
   purple: "var(--color-accent-purple)",
   green: "var(--color-accent-green)",
   brown: "var(--color-accent-brown)",
+  gray: "var(--color-accent-gray)",
 } as const;
 
 export type CardColorKey = keyof typeof cardColors;

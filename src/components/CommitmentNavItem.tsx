@@ -1,13 +1,13 @@
+import type { CSSProperties } from "react";
+
 export type Principle = {
   no: string;
   title: string;
-  en: string;
   color: string;
   accentColor: string;
   image: string;
   summary: string;
   body: string[];
-  tags: string[];
 };
 
 type CommitmentNavItemProps = {
@@ -18,14 +18,16 @@ type CommitmentNavItemProps = {
 
 export default function CommitmentNavItem({ principle, isActive, onClick }: CommitmentNavItemProps) {
   return (
-    <button
-      onClick={onClick}
-      className="text-left rounded-[16px] border-2 px-5 py-4 transition-all"
-      style={{
-        borderColor: isActive ? principle.accentColor : "#e0d8d0",
-        backgroundColor: isActive ? principle.color : "white",
-      }}
-    >
+      <button
+        onClick={onClick}
+        className={`text-left rounded-[16px] border-2 px-5 py-4 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 ${
+          isActive ? "border-[var(--accent)]" : "border-[#e0d8d0] hover:border-[var(--accent)]"
+        }`}
+        style={{
+          "--accent": principle.accentColor,
+          backgroundColor: isActive ? principle.color : "white",
+        } as CSSProperties}
+      >
       <span
         className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-xs tracking-[1px] block mb-1"
         style={{ color: isActive ? principle.accentColor : "#aaa" }}

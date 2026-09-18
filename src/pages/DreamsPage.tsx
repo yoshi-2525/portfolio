@@ -2,6 +2,7 @@ import SiteHeader from "@/components/SiteHeader";
 import PageHeading from "@/components/PageHeading";
 import DreamCard from "@/components/DreamCard";
 import { dreams } from "@/data/dreams";
+import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
 
 export default function DreamsPage() {
   return (
@@ -22,12 +23,13 @@ export default function DreamsPage() {
               未来の私に見せたい景色を、ここに描いています。
             </>
           }
+          illustrationSrc={imgDreamsHero}
         />
 
         {/* Dream cards */}
         <div className="flex flex-col gap-6">
-          {dreams.map((dream) => (
-            <DreamCard key={dream.id} dream={dream} />
+          {dreams.map((dream, index) => (
+            <DreamCard key={dream.id} dream={dream} index={index} reverse={index % 2 === 1} />
           ))}
         </div>
       </main>

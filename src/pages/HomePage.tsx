@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type CSSProperties } from "react";
 import { Link } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
 import { cardColors, accentColors } from "@/styles/palette";
@@ -13,6 +13,7 @@ const navCards = [
     title: "学習した記録",
     description: "価値あるものを創作するために必要な知識をまとめています。",
     color: cardColors.blue,
+    accentColor: accentColors.blue,
   },
   {
     to: "/commitment",
@@ -20,6 +21,7 @@ const navCards = [
     title: "創作へのこだわり",
     description: "デザインからプログラミング、設計まで、私のデザインにおけるこだわりを書き留めています。",
     color: cardColors.coral,
+    accentColor: accentColors.coral,
   },
   {
     to: "/dreams",
@@ -27,6 +29,7 @@ const navCards = [
     title: "わたしの将来の夢",
     description: "ものづくりを通して為したいことを書き留めています。",
     color: cardColors.gray,
+    accentColor: accentColors.gray,
   },
   {
     to: "/profile",
@@ -34,6 +37,7 @@ const navCards = [
     title: "プロフィール",
     description: "簡単なプロフィールを書いています。",
     color: cardColors.amber,
+    accentColor: accentColors.brown,
   },
 ];
 
@@ -107,8 +111,11 @@ export default function HomePage() {
               <Link
                 key={card.to}
                 to={card.to}
-                className="relative block rounded-[20px] border-2 border-[#222] p-12 pt-12 hover:shadow-lg transition-shadow"
-                style={{ backgroundColor: card.color }}
+                className="relative block rounded-[20px] border-2 border-[#e0d8d0] hover:border-[var(--accent)] p-12 pt-12 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                style={{
+                  "--accent": card.accentColor,
+                  backgroundColor: card.color,
+                } as CSSProperties}
               >
                 <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#d57563] border-2 border-[#222] text-white text-sm font-['Zen_Maru_Gothic:Bold',sans-serif] tracking-[1.1px] px-6 py-2 rounded-full whitespace-nowrap">
                   {card.label}
@@ -145,7 +152,7 @@ export default function HomePage() {
                 <Link
                   key={work.no}
                   to="/works"
-                  className="bg-white rounded-[20px] border-2 border-[#222] overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+                  className="bg-white rounded-[20px] border-2 border-[#222] overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all flex flex-col"
                 >
                   <div className="p-6" style={{ backgroundColor: cardColors.sand }}>
                     <img

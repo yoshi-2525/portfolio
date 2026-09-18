@@ -3,37 +3,36 @@ import imgProfile from "@/imports/1920WLight/bdbe7ab60c7cedfdf13d0d0825db141c6ad
 import SiteHeader from "@/components/SiteHeader";
 import { cardColors } from "@/styles/palette";
 
-const skills = [
-  { name: "Figma", level: 90, note: "コンポーネント設計・デザインシステム" },
-  { name: "React", level: 80, note: "React 19 / フック / 状態管理" },
-  { name: "TypeScript", level: 75, note: "型設計・型安全なAPI連携" },
-  { name: "デザインシステム", level: 85, note: "トークン設計・コンポーネント運用" },
-  { name: "UI/UX設計", level: 70, note: "ユーザーリサーチ・プロトタイピング" },
+const profileInfo = [
+  { label: "名前", value: "Inui Yoshitaka" },
+  { label: "なりたい職業", value: "UI/UXデザイナー、アプリケーションエンジニア" },
+  { label: "できること", value: "Figma、React、デザインシステム運用、TypeScript" },
+  { label: "趣味", value: "ヨガ、読書、散歩、音楽" }
 ];
 
 const timeline = [
   {
-    year: "2022",
+    year: "2023",
     title: "IT企業に新卒入社",
-    description: "サービスエンジニアとしてキャリアをスタート。SaaSプロダクトの設計・保守に携わる。",
+    description: "APM製品を扱っている製品の企業に入社し、QAエンジニアとして製品の機能テストを遂行。",
     color: cardColors.blue,
   },
   {
-    year: "2023",
-    title: "フロントエンド開発に傾倒",
-    description: "React / TypeScript を独学で習得。社内ツールのUI改善プロジェクトを主導。",
+    year: "2025",
+    title: "部署移動でサービスエンジニアに従事",
+    description: "ジョブローテで部署を移動し、サービスの問い合わせやインシデントの対応、構築業務等を遂行。",
     color: cardColors.coral,
   },
   {
-    year: "2024",
-    title: "Figma・デザインに本格参入",
-    description: "デザインとエンジニアリングの橋渡しとしてデザインシステム運用を担当。Figma を深く学ぶ。",
+    year: "2026.04",
+    title: "UI/UXデザインの学習を本格的に開始",
+    description: "東京デザインプレックス研究所に通い、本格的にUI/UXについての学習をはじめ、UI/UXにおける基礎的な知識を習得。",
     color: cardColors.purple,
   },
   {
-    year: "2025",
-    title: "学会発表・ポートフォリオ制作",
-    description: "哲学ワークショップアプリを開発。ウェブサイトをリニューアルし、ポートフォリオを公開。",
+    year: "2026.08",
+    title: "プログラミングの学習を本格的に開始",
+    description: "東京デジタルアカデミー若手エンジニアコースのReact上級コースを受講。ReactやNext.jsの基礎的な知識を習得。",
     color: cardColors.green,
   },
   {
@@ -84,12 +83,7 @@ export default function ProfilePage() {
             </p>
 
             <div className="grid grid-cols-[120px_1fr] gap-y-4 gap-x-6">
-              {[
-                { label: "名前", value: "Inui Yoshitaka" },
-                { label: "経歴", value: "新卒からIT企業でサービスエンジニアに従事。現在4年目。" },
-                { label: "なりたい職業", value: "UI/UXデザイナー、アプリケーションエンジニア" },
-                { label: "できること", value: "Figma、React、デザインシステム運用、TypeScript" },
-              ].map(({ label, value }) => (
+              {profileInfo.map(({ label, value }) => (
                 <React.Fragment key={label}>
                   <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#888] text-base tracking-[0.8px] leading-relaxed">
                     {label}
@@ -100,45 +94,6 @@ export default function ProfilePage() {
                 </React.Fragment>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Divider */}
-        <div className="border-t-2 border-[#e0d8d0] mb-20" />
-
-        {/* Skills */}
-        <section className="mb-20">
-          <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-3">
-            SKILLS
-          </p>
-          <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#3280cf] text-4xl tracking-[2px] mb-10">
-            できること
-          </h2>
-
-          <div className="flex flex-col gap-6">
-            {skills.map((skill) => (
-              <div key={skill.name}>
-                <div className="flex justify-between items-baseline mb-2">
-                  <div className="flex items-baseline gap-4">
-                    <span className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-lg tracking-[1px]">
-                      {skill.name}
-                    </span>
-                    <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#888] text-sm tracking-[0.5px]">
-                      {skill.note}
-                    </span>
-                  </div>
-                  <span className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#3280cf] text-sm tracking-[0.5px]">
-                    {skill.level}%
-                  </span>
-                </div>
-                <div className="h-2.5 bg-white border border-[#ddd] rounded-full overflow-hidden">
-                  <div
-                    className="h-full rounded-full bg-[#3280cf] transition-all"
-                    style={{ width: `${skill.level}%` }}
-                  />
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 

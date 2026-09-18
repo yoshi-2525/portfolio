@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
 import PageHeading from "@/components/PageHeading";
 import { works } from "@/data/works";
+import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
 
 const categories = ["すべて", "アプリ開発", "Web デザイン", "デザイン設計"];
 
@@ -30,6 +31,7 @@ export default function WorksPage() {
               デザインから実装まで、ひとつひとつ手がけてきました。
             </>
           }
+          illustrationSrc={imgDreamsHero}
         />
 
         {/* Category filter */}

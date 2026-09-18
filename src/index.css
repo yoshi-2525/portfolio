@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@layer base {
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 @theme {
   /* Card palette: pastel background paired with a matching accent color.
      Reused across Learning/Works/Commitment/Dreams/Profile card lists —
@@ -17,6 +23,44 @@
   --color-accent-purple: #7c3aed;
   --color-accent-green: #059669;
   --color-accent-brown: #b5621e;
+  --color-accent-gray: #888888;
+
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-fade-in-right: fade-in-right 0.8s ease-out both;
+  --animate-fade-in-left: fade-in-left 0.8s ease-out both;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @font-face {

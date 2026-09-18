@@ -2,9 +2,9 @@ import { useState } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import PageHeading from "@/components/PageHeading";
 import LearningRecordCard from "@/components/LearningRecordCard";
-import { records } from "@/data/learningRecords";
-
-const categories = ["すべて", "フロントエンド", "デザイン", "TypeScript", "UI/UX", "CSS", "設計"];
+import LearningCategoryFilter from "@/components/LearningCategoryFilter";
+import { records, categories } from "@/data/learningRecords";
+import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
 
 export default function LearningPage() {
   const [active, setActive] = useState("すべて");
@@ -28,29 +28,15 @@ export default function LearningPage() {
               日々の学びの軌跡を、ここに刻んでいきます。
             </>
           }
+          illustrationSrc={imgDreamsHero}
         />
 
-        {/* Category filter */}
-        <div className="flex flex-wrap gap-3 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`font-['Zen_Maru_Gothic:Bold',sans-serif] px-5 py-2 rounded-full border-2 text-sm tracking-[0.8px] transition-all ${
-                active === cat
-                  ? "bg-[#d57563] border-[#d57563] text-white"
-                  : "bg-white border-[#222] text-[#222] hover:border-[#d57563] hover:text-[#d57563]"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        <LearningCategoryFilter categories={categories} active={active} onChange={setActive} />
 
         {/* Record cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div key={active} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((record, i) => (
-            <LearningRecordCard key={i} record={record} />
+            <LearningRecordCard key={record.id} record={record} index={i} />
           ))}
         </div>
 
