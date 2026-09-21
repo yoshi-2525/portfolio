@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { Link } from "react-router";
-import type { ContentBlock } from "@/types/content";
+import type { ContentBlock } from "@/data/learningRecords";
 
 export type LearningRecord = {
   id: number;

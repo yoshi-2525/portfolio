@@ -56,11 +56,10 @@ export default function LearningDetailPage() {
 
         <LearningCategoryFilter categories={categories} active={active} onChange={setActive} />
 
-        {/* Two-panel layout: detail (left) + record navigation (right) */}
+        {/* Two-panel layout: navigation (left) + detail (right) */}
         <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
-          
-          {/* Right: navigation between records */}
-          
+
+          {/* Left: navigation between records */}
           <nav className="flex flex-col gap-4 sticky top-8">
           <Link
             to="/learning"
@@ -72,7 +71,7 @@ export default function LearningDetailPage() {
               <LearningNavItem key={r.id} record={r} isActive={r.id === record.id} />
             ))}
           </nav>
-          {/* Left: detail */}
+          {/* Right: detail */}
           <article
             className="rounded-[20px] border-2 border-[#222] overflow-hidden"
             style={{ backgroundColor: record.color }}
@@ -91,7 +90,7 @@ export default function LearningDetailPage() {
                   {record.date}
                 </span>
               </div>
-              
+
               <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-3xl tracking-[1.5px] mb-6 leading-snug">
                 {record.title}
               </h1>

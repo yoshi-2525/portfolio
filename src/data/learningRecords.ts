@@ -2,6 +2,10 @@ import type { LearningRecord } from "@/components/LearningRecordCard";
 import { cardColors, accentColors } from "@/styles/palette";
 import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
 
+export type ContentBlock =
+  | { type: "heading"; text: string }
+  | { type: "body"; text: string }
+  | { type: "image"; image: string };
 
 // Single source of truth: every valid category, its color, and its filter/display order.
 // Records reference a category by name; the color and the filter list are both derived
