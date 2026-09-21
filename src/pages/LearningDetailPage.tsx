@@ -37,8 +37,7 @@ export default function LearningDetailPage() {
 
   return (
     <div
-      className="min-h-screen"
-      style={{ background: "linear-gradient(90deg, rgb(250, 242, 235) 0%, rgb(250, 242, 235) 100%)" }}
+      className="min-h-screen bg-page-bg"
     >
       <SiteHeader />
 

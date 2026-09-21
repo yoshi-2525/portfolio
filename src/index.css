@@ -7,6 +7,18 @@
 }
 
 @theme {
+  /* Site-wide page background. Used on every page's root element. */
+   --color-page-bg: #FAF2EB;  
+  /*   --color-page-bg:#faf7ca; */
+  /* --color-page-bg: #FAF6D7; */
+   /* --color-page-bg:#fef9d0; */ 
+   
+
+
+  
+
+  
+
   /* Card palette: pastel background paired with a matching accent color.
      Reused across Learning/Works/Commitment/Dreams/Profile card lists —
      see src/styles/palette.ts for the JS-side reference used in data arrays. */

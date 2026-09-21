@@ -7,8 +7,7 @@ import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b287
 export default function DreamsPage() {
   return (
     <div
-      className="min-h-screen"
-      style={{ background: "linear-gradient(90deg, rgb(250, 242, 235) 0%, rgb(250, 242, 235) 100%)" }}
+      className="min-h-screen bg-page-bg"
     >
       {/* Header */}
       <SiteHeader />

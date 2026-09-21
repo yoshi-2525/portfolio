@@ -47,20 +47,19 @@ const timeline = [
 export default function ProfilePage() {
   return (
     <div
-      className="min-h-screen"
-      style={{ background: "linear-gradient(90deg, rgb(250, 242, 235) 0%, rgb(250, 242, 235) 100%)" }}
+      className="min-h-screen bg-page-bg"
     >
       <SiteHeader />
 
-      <main className="max-w-5xl mx-auto px-8 py-16">
+      <main className="max-w-5xl mx-auto px-8 pt-16 pb-12">
 
         {/* Hero: photo + basic info */}
-        <section className="flex flex-col md:flex-row gap-12 items-start mb-20">
+        <section className="flex flex-col md:flex-row gap-16 items-start mb-20">
           {/* Profile photo */}
           <div className="shrink-0">
             <div
               className="rounded-full border-3 border-[#222] overflow-hidden"
-              style={{ width: 220, height: 220 }}
+              style={{ width: 330, height: 330 }}
             >
               <img
                 src={imgProfile}
@@ -75,12 +74,9 @@ export default function ProfilePage() {
             <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-2">
               PROFILE
             </p>
-            <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-5xl tracking-[2px] mb-1 leading-tight">
+            <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-5xl tracking-[2px] mb-12 leading-tight">
               わたしのプロフィール
             </h1>
-            <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#3280cf] text-2xl tracking-[1px] mb-8">
-              Inui Yoshitaka
-            </p>
 
             <div className="grid grid-cols-[120px_1fr] gap-y-4 gap-x-6">
               {profileInfo.map(({ label, value }) => (
@@ -98,7 +94,7 @@ export default function ProfilePage() {
         </section>
 
         {/* Divider */}
-        <div className="border-t-2 border-[#e0d8d0] mb-20" />
+        <div className="border-t-2 border-[#c2c4c3] mb-20" />
 
         {/* Timeline */}
         <section className="mb-20">

@@ -1,10 +1,6 @@
 import type { CSSProperties } from "react";
 import { Link } from "react-router";
-
-export type LearningContentBlock =
-  | { type: "heading"; text: string }
-  | { type: "body"; text: string }
-  | { type: "image"; image: string };
+import type { ContentBlock } from "@/types/content";
 
 export type LearningRecord = {
   id: number;
@@ -14,7 +10,7 @@ export type LearningRecord = {
   description: string;
   color: string;
   accentColor: string;
-  content: LearningContentBlock[];
+  content: ContentBlock[];
 };
 
 type LearningRecordCardProps = {
