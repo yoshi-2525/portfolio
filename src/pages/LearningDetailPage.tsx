@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
 import PageHeading from "@/components/PageHeading";
 import LearningCategoryFilter from "@/components/LearningCategoryFilter";
 import LearningNavItem from "@/components/LearningNavItem";
 import { records, categories } from "@/data/learningRecords";
-import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
+import { pageHeadings } from "@/data/pageHeadings";
 
 export default function LearningDetailPage() {
   const { id } = useParams<{ id: string }>();
   const record = records.find((r) => r.id === Number(id));
   const [active, setActive] = useState("すべて");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
   const filtered = active === "すべて" ? records : records.filter((r) => r.category === active);
 
   if (!record) {
@@ -42,17 +46,7 @@ export default function LearningDetailPage() {
       <SiteHeader />
 
       <main className="max-w-6xl mx-auto px-8 py-16">
-        <PageHeading
-          eyebrow="LEARNING LOG"
-          title="学習した記録"
-          description={
-            <>
-              価値あるものを創作するために必要な知識をまとめています。<br />
-              日々の学びの軌跡を、ここに刻んでいきます。
-            </>
-          }
-          illustrationSrc={imgDreamsHero}
-        />
+        <PageHeading {...pageHeadings.learning} />
 
         <LearningCategoryFilter categories={categories} active={active} onChange={setActive} />
 
@@ -73,7 +67,7 @@ export default function LearningDetailPage() {
           </nav>
           {/* Right: detail */}
           <article
-            className="rounded-[20px] border-2 border-[#222] overflow-hidden"
+            className="rounded-[20px] border-2 border-border-dark overflow-hidden"
             style={{ backgroundColor: record.color }}
           >
             <div className="h-1.5 bg-[#d57563]" />
@@ -95,7 +89,7 @@ export default function LearningDetailPage() {
                 {record.title}
               </h1>
 
-              <div className="border-t-2 border-[#222] pt-8 flex flex-col gap-4">
+              <div className="border-t-2 border-border-dark pt-8 flex flex-col gap-4">
                 {record.content.map((block, i) => {
                   if (block.type === "heading") {
                     return (
@@ -113,7 +107,7 @@ export default function LearningDetailPage() {
                         key={i}
                         src={block.image}
                         alt=""
-                        className="w-full rounded-[16px] border-2 border-[#222] object-cover"
+                        className="w-full rounded-[16px] border-2 border-border-dark object-cover"
                       />
                     );
                   }
@@ -134,7 +128,7 @@ export default function LearningDetailPage() {
       </main>
 
       {/* Footer */}
-      <footer className="flex items-center justify-between px-10 py-8 mt-16 border-t border-[#e0d8d0]">
+      <footer className="flex items-center justify-between px-10 py-8 mt-16 border-t border-border-gray">
         <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xs tracking-[1.1px]">
           © 2026 Yoshitaka Inui. All Right Reserved.
         </p>

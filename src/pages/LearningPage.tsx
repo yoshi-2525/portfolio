@@ -4,7 +4,7 @@ import PageHeading from "@/components/PageHeading";
 import LearningRecordCard from "@/components/LearningRecordCard";
 import LearningCategoryFilter from "@/components/LearningCategoryFilter";
 import { records, categories } from "@/data/learningRecords";
-import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
+import { pageHeadings } from "@/data/pageHeadings";
 
 export default function LearningPage() {
   const [active, setActive] = useState("すべて");
@@ -18,17 +18,7 @@ export default function LearningPage() {
       <SiteHeader />
 
       <main className="max-w-6xl mx-auto px-8 py-16">
-        <PageHeading
-          eyebrow="LEARNING LOG"
-          title="学習した記録"
-          description={
-            <>
-              価値あるものを創作するために必要な知識をまとめています。<br />
-              日々の学びの軌跡を、ここに刻んでいきます。
-            </>
-          }
-          illustrationSrc={imgDreamsHero}
-        />
+        <PageHeading {...pageHeadings.learning} />
 
         <LearningCategoryFilter categories={categories} active={active} onChange={setActive} />
 
@@ -49,7 +39,7 @@ export default function LearningPage() {
       </main>
 
       {/* Footer */}
-      <footer className="text-right px-10 py-8 mt-16 border-t border-[#e0d8d0]">
+      <footer className="text-right px-10 py-8 mt-16 border-t border-border-gray">
         <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xs tracking-[1.1px]">
           © 2026 Yoshitaka Inui. All Right Reserved.
         </p>

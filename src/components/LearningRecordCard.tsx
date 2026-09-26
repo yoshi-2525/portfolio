@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { Link } from "react-router";
+import CardDetailLink from "@/components/CardDetailLink";
 import type { ContentBlock } from "@/data/learningRecords";
 
 export type LearningRecord = {
@@ -22,7 +23,7 @@ export default function LearningRecordCard({ record, index = 0 }: LearningRecord
   return (
     <Link
       to={`/learning/${record.id}`}
-      className="h-full flex flex-col rounded-[20px] border-2 border-[#e0d8d0] shadow hover:border-[var(--accent)] overflow-hidden group hover:shadow-lg transition-shadow animate-fade-in-up"
+      className="h-full flex flex-col rounded-[20px] border-2 border-border-gray shadow hover:border-[var(--accent)] overflow-hidden group hover:shadow-lg transition-shadow animate-fade-in-up"
       style={{
         "--accent": record.accentColor,
         backgroundColor: record.color,
@@ -51,12 +52,7 @@ export default function LearningRecordCard({ record, index = 0 }: LearningRecord
           {record.description}
         </p>
 
-        <span
-          className="mt-auto inline-flex items-center gap-2 font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm tracking-[1px] transition-colors"
-          style={{ color: record.accentColor }}
-        >
-          詳しく見る →
-        </span>
+        <CardDetailLink color={record.accentColor} className="mt-auto" />
       </div>
     </Link>
   );

@@ -14,18 +14,20 @@ type CommitmentNavItemProps = {
   principle: Principle;
   isActive: boolean;
   onClick: () => void;
+  index?: number;
 };
 
-export default function CommitmentNavItem({ principle, isActive, onClick }: CommitmentNavItemProps) {
+export default function CommitmentNavItem({ principle, isActive, onClick, index = 0 }: CommitmentNavItemProps) {
   return (
       <button
         onClick={onClick}
-        className={`text-left rounded-[16px] border-2 px-5 py-4 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 ${
-          isActive ? "border-[var(--accent)]" : "border-[#e0d8d0] hover:border-[var(--accent)]"
+        className={`text-left rounded-[16px] border-2 px-5 py-4 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 animate-fade-in-up ${
+          isActive ? "border-[var(--accent)]" : "border-border-gray hover:border-[var(--accent)]"
         }`}
         style={{
           "--accent": principle.accentColor,
           backgroundColor: isActive ? principle.color : "white",
+          animationDelay: `${index * 100 + 120}ms`,
         } as CSSProperties}
       >
       <span

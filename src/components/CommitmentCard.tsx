@@ -11,20 +11,20 @@ type CommitmentCardProps = {
 export default function CommitmentCard({ principle, index, total, onPrev, onNext }: CommitmentCardProps) {
   return (
     <div
-      className="rounded-[20px] border-2 border-[#222] overflow-hidden"
-      style={{ backgroundColor: principle.color }}
+      className="rounded-[20px] border-2 border-border-dark overflow-hidden animate-fade-in-right"
+      style={{ backgroundColor: principle.color, animationDelay: "150ms" }}
     >
       <div className="px-8 pt-8 pb-0">
         <img
           src={principle.image}
           alt={principle.title}
-          className="w-full h-full rounded-[16px] border-2 border-[#222] object-cover"
+          className="w-full h-full rounded-[16px] border-2 border-border-dark object-cover"
         />
       </div>
 
       {/* Body */}
       <div className="px-8 py-8">
-        <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-4xl tracking-[2px] mb-4 leading-tight">
+        <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-4xl tracking-[2px] mb-8 leading-tight">
           {principle.title}
         </h2>
 
@@ -52,7 +52,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
       </div>
 
       {/* Prev / Next */}
-      <div className="flex justify-between items-center px-8 py-5 border-t-2 border-[#222] bg-white/40">
+      <div className="flex justify-between items-center px-8 py-5 border-t-2 border-border-dark bg-white/40">
         {index > 0 ? (
           <button
             onClick={onPrev}

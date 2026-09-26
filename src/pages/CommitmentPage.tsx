@@ -5,7 +5,7 @@ import PageHeading from "@/components/PageHeading";
 import CommitmentNavItem from "@/components/CommitmentNavItem";
 import CommitmentCard from "@/components/CommitmentCard";
 import { principles } from "@/data/principles";
-import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
+import { pageHeadings } from "@/data/pageHeadings";
 
 export default function CommitmentPage() {
   const [active, setActive] = useState<number>(0);
@@ -18,16 +18,7 @@ export default function CommitmentPage() {
       <SiteHeader />
 
       <main className="max-w-6xl mx-auto px-8 py-16">
-        <PageHeading
-          eyebrow="DESIGN PHILOSOPHY"
-          title="創作へのこだわり"
-          description={
-            <>
-              私がものを創るうえで大切にしている姿勢を書き留めています。
-            </>
-          }
-          illustrationSrc={imgDreamsHero}
-        />
+        <PageHeading {...pageHeadings.commitment} />
 
         {/* Two-panel layout */}
         <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
@@ -39,6 +30,7 @@ export default function CommitmentPage() {
                 principle={p}
                 isActive={active === i}
                 onClick={() => setActive(i)}
+                index={i}
               />
             ))}
           </nav>
@@ -56,7 +48,7 @@ export default function CommitmentPage() {
       </main>
 
       {/* Footer */}
-      <footer className="flex items-center justify-between px-10 py-8 border-t border-[#e0d8d0]">
+      <footer className="flex items-center justify-between px-10 py-8 border-t border-border-gray">
         <Link to="/" className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#d57563] text-xs tracking-[1.1px] hover:opacity-70 transition-opacity">
           ← ホームへ戻る
         </Link>

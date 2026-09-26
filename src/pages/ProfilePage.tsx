@@ -1,5 +1,5 @@
 import React from "react";
-import imgProfile from "@/imports/1920WLight/bdbe7ab60c7cedfdf13d0d0825db141c6ad80d55.png";
+import imgProfile from "@/imports/images/typing.png";
 import SiteHeader from "@/components/SiteHeader";
 import { cardColors } from "@/styles/palette";
 
@@ -26,7 +26,7 @@ const timeline = [
   {
     year: "2026.04",
     title: "UI/UXデザインの学習を本格的に開始",
-    description: "東京デザインプレックス研究所に通い、本格的にUI/UXについての学習をはじめ、UI/UXにおける基礎的な知識を習得。",
+    description: "東京デザインプレックス研究所に通い、本格的にUI/UXについての学習をはじめ、基礎的な知識を習得。",
     color: cardColors.purple,
   },
   {
@@ -36,7 +36,7 @@ const timeline = [
     color: cardColors.green,
   },
   {
-    year: "2026",
+    year: "2026.09",
     title: "UI/UXデザイナーを本格的に目指す",
     description: "個人プロダクト開発とデザイン研究を継続。創造への衝動を形にし続ける。",
     color: cardColors.amber,
@@ -56,9 +56,9 @@ export default function ProfilePage() {
         {/* Hero: photo + basic info */}
         <section className="flex flex-col md:flex-row gap-16 items-start mb-20">
           {/* Profile photo */}
-          <div className="shrink-0">
+          <div className="shrink-0 animate-fade-in-left">
             <div
-              className="rounded-full border-3 border-[#222] overflow-hidden"
+              className="rounded-full border-3 border-border-dark overflow-hidden"
               style={{ width: 330, height: 330 }}
             >
               <img
@@ -70,7 +70,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Text */}
-          <div className="flex-1">
+          <div className="flex-1 animate-fade-in-right" style={{ animationDelay: "120ms" }}>
             <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-2">
               PROFILE
             </p>
@@ -97,27 +97,34 @@ export default function ProfilePage() {
         <div className="border-t-2 border-[#c2c4c3] mb-20" />
 
         {/* Timeline */}
-        <section className="mb-20">
+        <section className="mb-20 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
           <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-3">
             TIMELINE
           </p>
-          <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#3280cf] text-4xl tracking-[2px] mb-10">
+          <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-accent-blue text-4xl tracking-[2px] mb-10">
             経歴
           </h2>
 
           <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-[52px] top-0 bottom-0 w-0.5 bg-[#e0d8d0]" />
-
             <div className="flex flex-col gap-8">
-              {timeline.map((item) => (
-                <div key={item.year} className="flex gap-8 items-start">
+              {timeline.map((item, index) => (
+                <div
+                  key={item.year}
+                  className="relative flex gap-8 items-center animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100 + 300}ms` }}
+                >
+                  {/* Vertical line segment (first row starts at the bubble) */}
+                  <div
+                    className={`absolute left-[52px] bottom-0 w-0.5 bg-border-gray ${
+                      index === 0 ? "top-1/2" : "-top-8"
+                    }`}
+                  />
                   {/* Year bubble */}
                   <div
                     className="shrink-0 w-[104px] flex justify-center"
                   >
                     <div
-                      className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm tracking-[1px] px-3 py-1.5 rounded-full border-2 border-[#222] z-10 relative ${
+                      className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-base tracking-[1px] px-5 py-1.5 rounded-full border-2 border-border-dark z-10 relative ${
                         item.isCurrent
                           ? "bg-[#d57563] text-white"
                           : "bg-white text-[#222]"
@@ -129,7 +136,7 @@ export default function ProfilePage() {
 
                   {/* Card */}
                   <div
-                    className="flex-1 rounded-[16px] border-2 border-[#222] p-6 mb-2"
+                    className="flex-1 rounded-[16px] border-2 border-border-dark p-6 mb-2"
                     style={{ backgroundColor: item.color }}
                   >
                     <h3 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xl tracking-[1px] mb-2">
@@ -144,30 +151,10 @@ export default function ProfilePage() {
             </div>
           </div>
         </section>
-
-        {/* About */}
-        <section>
-          <div
-            className="rounded-[20px] border-2 border-[#222] px-12 py-10 text-center"
-            style={{ backgroundColor: cardColors.sand }}
-          >
-            <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#d57563] text-4xl tracking-[3px] mb-6">
-              創作への思い
-            </p>
-            <div className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#333] text-lg leading-loose tracking-[0.8px] max-w-2xl mx-auto">
-              <p>創造性、洞察、ひらめき、アイデア、美学、審美…</p>
-              <p>このような言葉に魅せられながら、私はこの世に生かされてきました。</p>
-              <p>わたしの心の中にある穴も、この言葉とともに癒えていくようです。</p>
-              <p className="mt-4">
-                わたしのポートフォリオでは、創造的な衝動に駆られ続けるわたしの軌跡を残していきます。
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
-      <footer className="text-right px-10 py-8 mt-16 border-t border-[#e0d8d0]">
+      <footer className="text-right px-10 py-8 mt-16 border-t border-border-gray">
         <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xs tracking-[1.1px]">
           © 2026 Yoshitaka Inui. All Right Reserved.
         </p>

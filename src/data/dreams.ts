@@ -38,4 +38,13 @@ export const dreams: Dream[] = [
     color: cardColors.green,
     accentColor: accentColors.green,
   },
+  {
+    id: 5,
+    title: "クリエイティブの土台を作る",
+    subtitle: "人々が創造的な活動に没頭できるような環境を創る",
+    description:
+      "哲学・美学の視点からデジタルプロダクトを捉え、「良いデザインとは何か」という問いに答えを持つ研究者でありたい。学会発表や論文執筆を通じて、創造的な知見を社会に還元したいと思っています。",
+    color: cardColors.gray,
+    accentColor: accentColors.gray,
+  },
 ];

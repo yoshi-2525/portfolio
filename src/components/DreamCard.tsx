@@ -18,7 +18,7 @@ export default function DreamCard({ dream, index, reverse = false }: DreamCardPr
 
   return (
     <div
-      className={`rounded-[20px] border-2 border-[#222] overflow-hidden transition-all ${
+      className={`rounded-[20px] border-2 border-border-dark overflow-hidden transition-all ${
         reverse ? "animate-fade-in-right" : "animate-fade-in-left"
       }`}
       style={{ backgroundColor: dream.color, animationDelay: `${index * 120 + 120}ms` }}
@@ -31,7 +31,7 @@ export default function DreamCard({ dream, index, reverse = false }: DreamCardPr
           }`}
         >
           <span
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] tabular-nums text-3xl w-20 h-20 flex items-center justify-center rounded-full border-2 border-[#222] bg-white shrink-0"
+            className="font-['Zen_Maru_Gothic:Bold',sans-serif] tabular-nums text-3xl w-20 h-20 flex items-center justify-center rounded-full border-2 border-border-dark bg-white shrink-0"
             style={{ color: dream.accentColor }}
           >
             {number}

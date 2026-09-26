@@ -12,7 +12,7 @@ export default function LearningNavItem({ record, isActive }: LearningNavItemPro
     <Link
       to={`/learning/${record.id}`}
       className={`block text-left rounded-[16px] border-2 px-5 py-4 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 ${
-        isActive ? "border-[var(--accent)]" : "border-[#e0d8d0] hover:border-[var(--accent)]"
+        isActive ? "border-[var(--accent)]" : "border-border-gray hover:border-[var(--accent)]"
       }`}
       style={{
         "--accent": record.accentColor,
