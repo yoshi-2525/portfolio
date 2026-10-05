@@ -54,7 +54,7 @@ export default function LearningDetailPage() {
         <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
 
           {/* Left: navigation between records */}
-          <nav className="flex flex-col gap-4 sticky top-8">
+          <nav className="flex flex-col gap-4 md:sticky md:top-8">
           <Link
             to="/learning"
             className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#666] text-xm tracking-[1.1px] hover:text-[#222] transition-colors"
