@@ -39,3 +39,12 @@ This project uses **Tailwind CSS v4** through the `@tailwindcss/vite` plugin con
 - Use double quotes for strings containing apostrophes (`"We're here to help"`), or escape them in single-quoted strings. An unescaped apostrophe in a single-quoted string breaks the build.
 - Ensure JSX tags are closed and braces are balanced.
 - Export components as default exports.
+
+## Design System
+
+UIを追加・変更するときは、次のデザインシステムに従うこと。
+https://claude.ai/artifact/MvP1jkZpAVx4Gk5j3s6dE3
+
+- 最初に `project/README.md` を読み、色・文字・形・状態のルールを確認する
+- トークンの値は `project/tokens.json`、各コンポーネントの使い方は `project/components/<名前>/README.md` を参照する
+- 色や余白を直書きせず、`src/index.css` の `@theme` にあるトークンを使う

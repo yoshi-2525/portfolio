@@ -1,6 +1,8 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import BackLink from "@/components/BackLink";
 import WorkProcessSlider from "@/components/WorkProcessSlider";
 import { works } from "@/data/works";
 
@@ -20,13 +22,9 @@ export default function WorksDetailPage() {
           <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#aaa] text-xl tracking-[1px] mb-8">
             該当する作品が見つかりませんでした
           </p>
-          <Link
-            to="/works"
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#d57563] text-sm tracking-[1px] hover:opacity-70 transition-opacity"
-          >
-            ← 作品集一覧へ戻る
-          </Link>
+          <BackLink to="/works">作品集一覧へ戻る</BackLink>
         </main>
+        <SiteFooter />
       </div>
     );
   }
@@ -36,12 +34,9 @@ export default function WorksDetailPage() {
       <SiteHeader />
 
       <main className="max-w-6xl mx-auto px-8 py-16">
-        <Link
-          to="/works"
-          className="inline-flex items-center gap-2 font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm tracking-[1px] text-[#888] hover:text-[#222] transition-colors mb-10"
-        >
-          ← 作品集一覧へ戻る
-        </Link>
+        <BackLink to="/works" className="mb-10">
+          作品集一覧へ戻る
+        </BackLink>
 
         <article
           className="rounded-[20px] border-2 border-border-dark overflow-hidden"
@@ -69,7 +64,7 @@ export default function WorksDetailPage() {
               </span>
             </div>
 
-            <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-4xl tracking-[1.5px] mb-1">
+            <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-3xl tracking-[1.5px] mb-1">
               {work.title}
             </h1>
             <p
@@ -94,18 +89,7 @@ export default function WorksDetailPage() {
         </article>
       </main>
 
-      {/* Footer */}
-      <footer className="flex items-center justify-between px-10 py-8 mt-16 border-t border-border-gray">
-        <Link
-          to="/works"
-          className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#d57563] text-xs tracking-[1.1px] hover:opacity-70 transition-opacity"
-        >
-          ← 作品集一覧へ戻る
-        </Link>
-        <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xs tracking-[1.1px]">
-          © 2026 Yoshitaka Inui. All Right Reserved.
-        </p>
-      </footer>
+      <SiteFooter backLink={{ to: "/works", label: "作品集一覧へ戻る" }} />
     </div>
   );
 }

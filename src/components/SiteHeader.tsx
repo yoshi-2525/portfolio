@@ -11,6 +11,10 @@ export default function SiteHeader() {
   const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Detail pages (e.g. /works/1) highlight their parent section.
+  const isCurrent = (to: string) =>
+    to === "/" ? pathname === "/" : pathname === to || pathname.startsWith(`${to}/`);
+
   return (
     <header className="relative flex items-center justify-between px-8 py-4 border-b-2 border-border-gray bg-page-bg">
       <Link
@@ -27,7 +31,7 @@ export default function SiteHeader() {
             key={label}
             to={to}
             className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
-              pathname === to ? "text-[#d57563]" : "text-[#222]"
+              isCurrent(to) ? "text-[#d57563]" : "text-[#222]"
             }`}
           >
             {label}
@@ -77,7 +81,7 @@ export default function SiteHeader() {
             to={to}
             onClick={() => setIsMenuOpen(false)}
             className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
-              pathname === to ? "text-[#d57563]" : "text-[#222]"
+              isCurrent(to) ? "text-[#d57563]" : "text-[#222]"
             }`}
           >
             {label}

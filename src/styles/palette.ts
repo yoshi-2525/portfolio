@@ -14,7 +14,6 @@ export const cardColors = {
   green: "var(--color-card-green)",
   amber: "var(--color-card-amber)",
   peach: "var(--color-card-peach)",
-  sand: "var(--color-card-sand)",
   gray: "var(--color-card-gray)",
 } as const;
 

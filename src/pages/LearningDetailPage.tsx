@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import BackLink from "@/components/BackLink";
 import PageHeading from "@/components/PageHeading";
 import LearningCategoryFilter from "@/components/LearningCategoryFilter";
 import LearningNavItem from "@/components/LearningNavItem";
@@ -19,22 +21,15 @@ export default function LearningDetailPage() {
 
   if (!record) {
     return (
-      <div
-        className="min-h-screen"
-        style={{ background: "linear-gradient(90deg, rgb(250, 242, 235) 0%, rgb(250, 242, 235) 100%)" }}
-      >
+      <div className="min-h-screen bg-page-bg">
         <SiteHeader />
         <main className="max-w-3xl mx-auto px-8 py-24 text-center">
           <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#aaa] text-xl tracking-[1px] mb-8">
             該当する記録が見つかりませんでした
           </p>
-          <Link
-            to="/learning"
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#d57563] text-sm tracking-[1px] hover:opacity-70 transition-opacity"
-          >
-            ← 学習記録一覧へ戻る
-          </Link>
+          <BackLink to="/learning">学習記録一覧へ戻る</BackLink>
         </main>
+        <SiteFooter />
       </div>
     );
   }
@@ -55,12 +50,7 @@ export default function LearningDetailPage() {
 
           {/* Left: navigation between records */}
           <nav className="flex flex-col gap-4 md:sticky md:top-8">
-          <Link
-            to="/learning"
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#666] text-xm tracking-[1.1px] hover:text-[#222] transition-colors"
-          >
-          ← 学習記録一覧へ戻る
-        </Link>
+            <BackLink to="/learning">学習記録一覧へ戻る</BackLink>
             {filtered.map((r) => (
               <LearningNavItem key={r.id} record={r} isActive={r.id === record.id} />
             ))}
@@ -75,7 +65,7 @@ export default function LearningDetailPage() {
             <div className="p-8 sm:p-10">
               <div className="flex items-center justify-between mb-8">
                 <span
-                  className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-xs tracking-[1px] px-3 py-1 rounded-full border border-current"
+                  className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-xs tracking-[1px] px-3 py-1 rounded-full bg-white"
                   style={{ color: record.accentColor }}
                 >
                   {record.category}
@@ -89,13 +79,17 @@ export default function LearningDetailPage() {
                 {record.title}
               </h1>
 
-              <div className="border-t-2 border-border-dark pt-8 flex flex-col gap-4">
+              <div className="border-t-2 border-border-dark pt-8 flex flex-col">
                 {record.content.map((block, i) => {
+                  // Spacing is set per block: tight under a heading, wide between sections, extra wide before a heading.
+                  const prev = record.content[i - 1];
+                  const spacing =
+                    i === 0 ? "" : prev.type === "heading" ? "mt-3" : block.type === "heading" ? "mt-12" : "mt-8";
                   if (block.type === "heading") {
                     return (
                       <h2
                         key={i}
-                        className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-2xl tracking-[1px] mt-4"
+                        className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-2xl tracking-[1px] ${spacing}`}
                       >
                         {block.text}
                       </h2>
@@ -107,17 +101,22 @@ export default function LearningDetailPage() {
                         key={i}
                         src={block.image}
                         alt=""
-                        className="w-full rounded-[16px] border-2 border-border-dark object-cover"
+                        className={`w-full rounded-[16px] border-2 border-border-dark object-cover ${spacing}`}
                       />
                     );
                   }
+                  // A body block is one section; its paragraphs sit closer together than the gap between sections.
                   return (
-                    <p
-                      key={i}
-                      className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#333] text-base leading-loose tracking-[0.6px]"
-                    >
-                      {block.text}
-                    </p>
+                    <section key={i} className={`flex flex-col gap-6 ${spacing}`}>
+                      {block.text.map((paragraph, j) => (
+                        <p
+                          key={j}
+                          className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#333] text-base leading-loose tracking-[0.6px]"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </section>
                   );
                 })}
               </div>
@@ -127,12 +126,7 @@ export default function LearningDetailPage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="flex items-center justify-between px-10 py-8 mt-16 border-t border-border-gray">
-        <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xs tracking-[1.1px]">
-          © 2026 Yoshitaka Inui. All Right Reserved.
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -29,7 +29,7 @@ export const principles: Principle[] = [
   {
     no: "03",
     title: "知識の幅を広げる",
-    color: cardColors.sand,
+    color: cardColors.amber,
     accentColor: accentColors.brown,
     image: "src/imports/images/bookshelf.png",
     summary: "アイデアは既存の知識の組み合わせから生まれる",

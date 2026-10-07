@@ -15,7 +15,7 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
         <button
           onClick={() => setActiveCard((c) => c - 1)}
           aria-label="前の項目へ"
-          className="shrink-0 w-16 h-16 rounded-full border-2 border-border-gray bg-white flex items-center justify-center opacity-50 transition-opacity hover:opacity-100"
+          className="shrink-0 w-16 h-16 rounded-full border-2 border-border-gray bg-white flex items-center justify-center opacity-70 transition-opacity shadow hover:opacity-100"
           style={{ color: accentColor }}
         >
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -44,7 +44,7 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
                   alt=""
                   className="w-full aspect-[16/9] object-cover border-b-2 border-border-dark"
                 />
-                <div className="p-6 flex flex-col gap-3 flex-1">
+                <div className="p-6 flex flex-col gap-5 flex-1">
                   <h3 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-lg tracking-[1px]">
                     {card.heading}
                   </h3>
@@ -58,7 +58,7 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
                   ))}
                 </div>
                 <p
-                  className="bg-white/40 py-3 text-center font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm tracking-[1px]"
+                  className="py-3 text-center font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm tracking-[1px]"
                   style={{ color: accentColor }}
                 >
                   {i + 1}/{process.length}

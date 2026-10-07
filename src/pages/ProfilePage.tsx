@@ -1,7 +1,10 @@
 import React from "react";
 import imgProfile from "@/imports/images/typing.png";
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import PageHeading from "@/components/PageHeading";
 import { cardColors } from "@/styles/palette";
+import { pageHeadings } from "@/data/pageHeadings";
 
 const profileInfo = [
   { label: "名前", value: "Inui Yoshitaka" },
@@ -12,13 +15,13 @@ const profileInfo = [
 
 const timeline = [
   {
-    year: "2023",
+    year: "2023.04",
     title: "IT企業に新卒入社",
     description: "APM製品を扱っている製品の企業に入社し、QAエンジニアとして製品の機能テストを遂行。",
     color: cardColors.blue,
   },
   {
-    year: "2025",
+    year: "2025.04",
     title: "部署移動でサービスエンジニアに従事",
     description: "ジョブローテで部署を移動し、サービスの問い合わせやインシデントの対応、構築業務等を遂行。",
     color: cardColors.coral,
@@ -50,16 +53,19 @@ export default function ProfilePage() {
       className="min-h-screen bg-page-bg"
     >
       <SiteHeader />
-
       <main className="max-w-5xl mx-auto px-8 pt-16 pb-12">
+        <PageHeading {...pageHeadings.profile} />
 
-        {/* Hero: photo + basic info */}
-        <section className="flex flex-col md:flex-row gap-16 items-start mb-20">
+         {/* Divider */}
+        <div className="border-t-2 border-[#c2c4c3] mb-10" />
+
+        {/* Photo + basic info */}
+        <section className="flex flex-col md:flex-row gap-16 md:items-center mb-20">
           {/* Profile photo */}
           <div className="shrink-0 animate-fade-in-left">
             <div
               className="rounded-full border-3 border-border-dark overflow-hidden"
-              style={{ width: 330, height: 330 }}
+              style={{ width: 240, height: 240 }}
             >
               <img
                 src={imgProfile}
@@ -69,22 +75,15 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* Text */}
+          {/* Basic info */}
           <div className="flex-1 animate-fade-in-right" style={{ animationDelay: "120ms" }}>
-            <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-2">
-              PROFILE
-            </p>
-            <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-5xl tracking-[2px] mb-12 leading-tight">
-              わたしのプロフィール
-            </h1>
-
             <div className="grid grid-cols-[120px_1fr] gap-y-4 gap-x-6">
               {profileInfo.map(({ label, value }) => (
                 <React.Fragment key={label}>
-                  <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#888] text-base tracking-[0.8px] leading-relaxed">
+                  <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#888] text-lg tracking-[0.6px] leading-relaxed">
                     {label}
                   </span>
-                  <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#222] text-base tracking-[0.8px] leading-relaxed">
+                  <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#222] text-lg tracking-[0.6px] leading-relaxed">
                     {value}
                   </span>
                 </React.Fragment>
@@ -101,7 +100,7 @@ export default function ProfilePage() {
           <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-3">
             TIMELINE
           </p>
-          <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-accent-blue text-4xl tracking-[2px] mb-10">
+          <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-accent-blue text-4xl tracking-[3px] mb-10">
             経歴
           </h2>
 
@@ -153,12 +152,7 @@ export default function ProfilePage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="text-right px-10 py-8 mt-16 border-t border-border-gray">
-        <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xs tracking-[1.1px]">
-          © 2026 Yoshitaka Inui. All Right Reserved.
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

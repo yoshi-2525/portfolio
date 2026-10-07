@@ -23,7 +23,7 @@ export default function LearningRecordCard({ record, index = 0 }: LearningRecord
   return (
     <Link
       to={`/learning/${record.id}`}
-      className="h-full flex flex-col rounded-[20px] border-2 border-border-gray shadow hover:border-[var(--accent)] overflow-hidden group hover:shadow-lg transition-shadow animate-fade-in-up"
+      className="h-full flex flex-col rounded-[20px] border-2 border-border-gray shadow hover:border-[var(--accent)] overflow-hidden group hover:shadow-lg hover:-translate-y-0.5 transition-all animate-fade-in-up"
       style={{
         "--accent": record.accentColor,
         backgroundColor: record.color,

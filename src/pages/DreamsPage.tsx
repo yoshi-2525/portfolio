@@ -1,4 +1,5 @@
 import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import PageHeading from "@/components/PageHeading";
 import DreamCard from "@/components/DreamCard";
 import { dreams } from "@/data/dreams";
@@ -23,12 +24,7 @@ export default function DreamsPage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="text-right px-10 py-8 mt-16 border-t border-border-gray">
-        <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xs tracking-[1.1px]">
-          © 2026 Yoshitaka Inui. All Right Reserved.
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
