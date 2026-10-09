@@ -2,6 +2,8 @@ import imgTheme01 from "@/imports/1920WLight/10fd8431ae6d9c2d06134d8fb0382795835
 import imgIdea from "@/imports/images/idea.png";
 import imgBookshelf from "@/imports/images/bookshelf.png";
 import imgHell from "@/imports/images/hell.png";
+import imgWorkshopPersona from "@/imports/images/works/workshop/persona_man.png";
+import imgWorkshopStory from "@/imports/images/works/workshop/story.png";
 import { cardColors, accentColors } from "@/styles/palette";
 
 // One card = one image + one heading + any number of body paragraphs.
@@ -98,22 +100,22 @@ export const works: Work[] = [
       },
       {
         heading: "ペルソナの選定",
-        image: imgHell,
+        image: imgWorkshopPersona,
         body: ["アプリを創るために、参加者のペルソナを設定しました。ターゲットは30歳の社会人男性で、趣味は小説や映画鑑賞です。「表面上のコミュニケーションに疲れてしまっている」、「コンテンツをメタ的な視点や俯瞰してみるのが好き」、「みんなが楽しんでいるものを上手に楽しめない」等の特徴を持っています。",
           "アプリを設計する際は、考えたペルソナがアプリを使用することを想定しながら必要な機能やコンセプト等を考えていきました。"
         ],
       },
       {
         heading: "サービスストーリーマップの作成",
-        image: imgHell,
+        image: imgWorkshopStory,
         body: ["サービスストーリーマップを作成し、このアプリを通してユーザーがどのようなことを実現してほしいのかを考えました。最終的なゴールは日常的に抱えている内面的なモヤモヤを仲間とともに言語化し続けていくことによって、心が穏やかになり自分の内面を豊かにしていくことです。",
           "その最終的なゴールを実現するために、どんな機能が必要なを考え、このサービスを使用する際のユーザー体験を考え、サービスを設計していきました。"]
       },
       {
         heading: "アプリ制作",
         image: imgHell,
-        body: ["本来のフローであれば、機能設計やコンセプト設計をすべきですが、AIでアプリを作ってみたいという思いを強く持っていたので、まずはClaudeCodeを使用して、簡単なアプリを製作しました。",
-          "ペルソナがアプリを使う際、どんなことが必要になるのかを考え、順次必要な機能をプロンプトに投げながら実装していきました。"]
+        body: ["本来のフローであれば、機能設計やコンセプト設計をすべきですが、AIでアプリを作ってみたいという思いを強く持っていたので、まずはClaudeCodeを使用して、簡単なワークショップのアプリ作ってみました。",
+          "最初はAIが作った感が丸出しで機能も不足していたので、ペルソナがアプリを使う際にどんなことが必要になるのかを考え、このアプリの改善策を考え続けました。そして作成してほしい機能をClaude Codeを使用して、実装し続けていくことによって、徐々に利便性や完成度の高いアプリになっていきました。"]
       },
       {
         heading: "コンセプト設計",
