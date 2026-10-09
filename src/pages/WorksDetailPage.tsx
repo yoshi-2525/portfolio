@@ -34,7 +34,7 @@ export default function WorksDetailPage() {
       <SiteHeader />
 
       <main className="max-w-6xl mx-auto px-8 py-16">
-        <BackLink to="/works" className="mb-10">
+        <BackLink to="/works" className="mb-4">
           作品集一覧へ戻る
         </BackLink>
 
