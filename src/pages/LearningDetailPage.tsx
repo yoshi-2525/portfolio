@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import BackLink from "@/components/BackLink";
+import Breadcrumb from "@/components/Breadcrumb";
 import PageHeading from "@/components/PageHeading";
 import LearningCategoryFilter from "@/components/LearningCategoryFilter";
 import LearningNavItem from "@/components/LearningNavItem";
@@ -41,6 +42,15 @@ export default function LearningDetailPage() {
       <SiteHeader />
 
       <main className="max-w-6xl mx-auto px-8 py-16">
+        <Breadcrumb
+          className="mb-8"
+          items={[
+            { label: "ホーム", to: "/" },
+            { label: pageHeadings.learning.label, to: pageHeadings.learning.to },
+            { label: record.title },
+          ]}
+        />
+
         <PageHeading {...pageHeadings.learning} />
 
         <LearningCategoryFilter categories={categories} active={active} onChange={setActive} />

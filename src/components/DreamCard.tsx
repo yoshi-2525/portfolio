@@ -18,12 +18,12 @@ export default function DreamCard({ dream, index, reverse = false }: DreamCardPr
 
   return (
     <div
-      className={`rounded-[20px] border-2 border-border-dark overflow-hidden transition-all ${
+      className={`h-full rounded-[20px] border-2 border-border-dark overflow-hidden transition-all ${
         reverse ? "animate-fade-in-right" : "animate-fade-in-left"
       }`}
       style={{ backgroundColor: dream.color, animationDelay: `${index * 120 + 120}ms` }}
     >
-      <div className="px-8 py-8 grid md:grid-cols-2 gap-8">
+      <div className="h-full px-8 py-8 grid md:grid-cols-2 gap-8 content-center items-center">
         {/* Title */}
         <div
           className={`flex items-center gap-5 ${

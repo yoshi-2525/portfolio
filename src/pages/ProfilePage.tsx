@@ -41,7 +41,7 @@ const timeline = [
   {
     year: "2026.09",
     title: "UI/UXデザイナーを本格的に目指す",
-    description: "個人プロダクト開発とデザイン研究を継続。創造への衝動を形にし続ける。",
+    description: "ものづくりを仕事にしたいため、ポートフォリオを製作しながら、UI/UXデザイイナーになることを目指す。",
     color: cardColors.amber,
     isCurrent: true,
   },

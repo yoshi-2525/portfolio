@@ -3,8 +3,10 @@ import { useParams } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import BackLink from "@/components/BackLink";
+import Breadcrumb from "@/components/Breadcrumb";
 import WorkProcessSlider from "@/components/WorkProcessSlider";
 import { works } from "@/data/works";
+import { pageHeadings } from "@/data/pageHeadings";
 
 export default function WorksDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -34,9 +36,14 @@ export default function WorksDetailPage() {
       <SiteHeader />
 
       <main className="max-w-6xl mx-auto px-8 py-16">
-        <BackLink to="/works" className="mb-4">
-          作品集一覧へ戻る
-        </BackLink>
+        <Breadcrumb
+          className="mb-8"
+          items={[
+            { label: "ホーム", to: "/" },
+            { label: pageHeadings.works.label, to: pageHeadings.works.to },
+            { label: work.title },
+          ]}
+        />
 
         <article
           className="rounded-[20px] border-2 border-border-dark overflow-hidden"

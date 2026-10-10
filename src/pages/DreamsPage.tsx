@@ -16,8 +16,8 @@ export default function DreamsPage() {
       <main className="max-w-6xl mx-auto px-8 py-16">
         <PageHeading {...pageHeadings.dreams} />
 
-        {/* Dream cards */}
-        <div className="flex flex-col gap-6">
+        {/* Dream cards — auto-rows-fr makes every card as tall as the tallest one */}
+        <div className="grid grid-cols-1 auto-rows-fr gap-6">
           {dreams.map((dream, index) => (
             <DreamCard key={dream.id} dream={dream} index={index} reverse={index % 2 === 1} />
           ))}
