@@ -97,7 +97,7 @@ export default function HomePage() {
 
         {/* Divider */}
         <div className="max-w-6xl mx-auto px-8">
-          <div className="border-t-2 border-[#c2c4c3] my-10" />
+          <div className="border-t-2 border-[#c2c4c3] my-2" />
         </div>
 
         {/* Creation thoughts + featured works */}

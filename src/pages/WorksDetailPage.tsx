@@ -52,7 +52,7 @@ export default function WorksDetailPage() {
           {/* Image */}
           <div className="relative overflow-hidden" style={{ minHeight: 320 }}>
             <img
-              src={work.image}
+              src={work.detailImage}
               alt={work.title}
               className="absolute inset-0 w-full h-full object-cover"
             />

@@ -33,7 +33,7 @@ export default function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
                 ) : (
                   <Link
                     to={item.to}
-                    className="text-ink-666 underline-offset-4 hover:text-accent-coral hover:underline transition-colors"
+                    className="text-ink-666 underline underline-offset-4 hover:text-accent-coral transition-colors"
                   >
                     {item.label}
                   </Link>

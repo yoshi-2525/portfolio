@@ -24,7 +24,7 @@ export default function WorkCard({ work, index = 0 }: WorkCardProps) {
         {/* Image */}
         <div className="relative overflow-hidden" style={{ minHeight: 240 }}>
           <img
-            src={work.image}
+            src={work.listImage}
             alt={work.title}
             className="absolute inset-0 w-full h-full object-cover"
           />
