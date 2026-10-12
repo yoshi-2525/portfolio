@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          lfs: true # 画像は Git LFS 管理なので実体を取得する
 
       - uses: pnpm/action-setup@v4
         with:
