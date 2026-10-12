@@ -31,6 +31,19 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
+      # 一時的な確認用：GitHub が AWS に送る OIDC トークンの中身と、Secret のロール ARN の形を表示する
+      - name: Debug OIDC
+        env:
+          ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
+        run: |
+          TOKEN=$(curl -sS -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r .value)
+          python3 -c "import sys,json,base64;p=sys.argv[1].split('.')[1];p+='='*(-len(p)%4);c=json.loads(base64.urlsafe_b64decode(p));print(json.dumps({k:c.get(k) for k in ('iss','aud','sub')},indent=2))" "$TOKEN"
+          echo "ARN length: ${#ROLE_ARN}"
+          echo "ARN account: $(echo "$ROLE_ARN" | cut -d: -f5)"
+          echo "ARN resource: $(echo "$ROLE_ARN" | cut -d: -f6)"
+          if [[ "$ROLE_ARN" =~ [[:space:]] ]]; then echo "WARNING: ARN contains whitespace"; fi
+
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
