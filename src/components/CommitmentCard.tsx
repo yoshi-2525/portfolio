@@ -16,6 +16,8 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
     >
       <div className="px-8 pt-8 pb-0">
         <img
+          loading="lazy"
+          decoding="async"
           src={principle.image}
           alt={principle.title}
           className="w-full h-full rounded-[16px] border-2 border-border-dark object-cover"
@@ -24,7 +26,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
 
       {/* Body */}
       <div className="px-8 py-8">
-        <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-4xl tracking-[2px] mb-8 leading-tight">
+        <h2 className="font-maru font-bold text-[#222] text-4xl tracking-[2px] mb-8 leading-tight">
           {principle.title}
         </h2>
 
@@ -33,7 +35,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
           className="border-l-4 pl-5 mb-8"
           style={{ borderColor: principle.accentColor }}
         >
-          <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#333] text-lg leading-relaxed tracking-[0.6px]">
+          <p className="font-kaku font-medium text-[#333] text-lg leading-relaxed tracking-[0.6px]">
             {principle.summary}
           </p>
         </div>
@@ -43,7 +45,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
           {principle.body.map((para, i) => (
             <p
               key={i}
-              className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#333] text-base leading-loose tracking-[0.5px]"
+              className="font-kaku font-medium text-[#333] text-base leading-loose tracking-[0.5px]"
             >
               {para}
             </p>
@@ -56,7 +58,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
         {index > 0 ? (
           <button
             onClick={onPrev}
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm tracking-[1px] transition-opacity"
+            className="font-maru font-bold text-sm tracking-[1px] transition-opacity"
             style={{ color: principle.accentColor }}
           >
             ← 前へ
@@ -64,13 +66,13 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
         ) : (
           <span />
         )}
-        <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-xs text-[#888] tracking-[1px]">
+        <span className="font-kaku font-medium text-xs text-[#888] tracking-[1px]">
           {index + 1} / {total}
         </span>
         {index < total - 1 ? (
           <button
             onClick={onNext}
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm tracking-[1px] transition-opacity"
+            className="font-maru font-bold text-sm tracking-[1px] transition-opacity"
             style={{ color: principle.accentColor }}
           >
             次へ →

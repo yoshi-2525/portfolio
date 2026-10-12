@@ -24,6 +24,8 @@ export default function WorkCard({ work, index = 0 }: WorkCardProps) {
         {/* Image */}
         <div className="relative overflow-hidden" style={{ minHeight: 240 }}>
           <img
+            loading="lazy"
+            decoding="async"
             src={work.listImage}
             alt={work.title}
             className="absolute inset-0 w-full h-full object-cover"
@@ -35,27 +37,27 @@ export default function WorkCard({ work, index = 0 }: WorkCardProps) {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span
-                className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-xs tracking-[1px] px-3 py-1 rounded-full border border-current"
+                className="font-kaku font-medium text-xs tracking-[1px] px-3 py-1 rounded-full border border-current"
                 style={{ color: work.accentColor }}
               >
                 {work.category}
               </span>
-              <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-xs text-[#888] tracking-[0.5px]">
+              <span className="font-kaku font-medium text-xs text-[#888] tracking-[0.5px]">
                 {work.year}
               </span>
             </div>
 
-            <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-3xl tracking-[1.5px] mb-1">
+            <h2 className="font-maru font-bold text-[#222] text-3xl tracking-[1.5px] mb-1">
               {work.title}
             </h2>
             <p
-              className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-sm tracking-[0.5px] mb-5"
+              className="font-kaku font-medium text-sm tracking-[0.5px] mb-5"
               style={{ color: work.accentColor }}
             >
               {work.subtitle}
             </p>
 
-            <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#333] text-base leading-relaxed tracking-[0.5px] mb-5">
+            <p className="font-kaku font-medium text-[#333] text-base leading-relaxed tracking-[0.5px] mb-5">
               {work.description}
             </p>
           </div>

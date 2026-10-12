@@ -1,5 +1,5 @@
 import React from "react";
-import imgProfile from "@/imports/images/typing.png";
+import imgProfile from "@/imports/images/typing.webp";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import PageHeading from "@/components/PageHeading";
@@ -68,6 +68,7 @@ export default function ProfilePage() {
               style={{ width: 240, height: 240 }}
             >
               <img
+                fetchPriority="high"
                 src={imgProfile}
                 alt="Inui Yoshitaka のプロフィール写真"
                 className="w-full h-full object-cover"
@@ -80,10 +81,10 @@ export default function ProfilePage() {
             <div className="grid grid-cols-[120px_1fr] gap-y-4 gap-x-6">
               {profileInfo.map(({ label, value }) => (
                 <React.Fragment key={label}>
-                  <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#888] text-lg tracking-[0.6px] leading-relaxed">
+                  <span className="font-kaku font-medium text-[#888] text-lg tracking-[0.6px] leading-relaxed">
                     {label}
                   </span>
-                  <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#222] text-lg tracking-[0.6px] leading-relaxed">
+                  <span className="font-kaku font-medium text-[#222] text-lg tracking-[0.6px] leading-relaxed">
                     {value}
                   </span>
                 </React.Fragment>
@@ -97,10 +98,10 @@ export default function ProfilePage() {
 
         {/* Timeline */}
         <section className="mb-20 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-          <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-3">
+          <p className="font-kaku font-medium text-[#d57563] text-sm tracking-[1px] mb-3">
             TIMELINE
           </p>
-          <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-accent-blue text-4xl tracking-[3px] mb-10">
+          <h2 className="font-maru font-bold text-accent-blue text-4xl tracking-[3px] mb-10">
             経歴
           </h2>
 
@@ -123,7 +124,7 @@ export default function ProfilePage() {
                     className="shrink-0 w-[104px] flex justify-center"
                   >
                     <div
-                      className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-base tracking-[1px] px-5 py-1.5 rounded-full border-2 border-border-dark z-10 relative ${
+                      className={`font-maru font-bold text-base tracking-[1px] px-5 py-1.5 rounded-full border-2 border-border-dark z-10 relative ${
                         item.isCurrent
                           ? "bg-[#d57563] text-white"
                           : "bg-white text-[#222]"
@@ -138,10 +139,10 @@ export default function ProfilePage() {
                     className="flex-1 rounded-[16px] border-2 border-border-dark p-6 mb-2"
                     style={{ backgroundColor: item.color }}
                   >
-                    <h3 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xl tracking-[1px] mb-2">
+                    <h3 className="font-maru font-bold text-[#222] text-xl tracking-[1px] mb-2">
                       {item.title}
                     </h3>
-                    <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#444] text-sm tracking-[0.5px] leading-relaxed">
+                    <p className="font-kaku font-medium text-[#444] text-sm tracking-[0.5px] leading-relaxed">
                       {item.description}
                     </p>
                   </div>

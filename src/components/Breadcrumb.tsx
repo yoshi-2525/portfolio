@@ -15,7 +15,7 @@ type BreadcrumbProps = {
 export default function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
   return (
     <nav aria-label="パンくずリスト" className={className}>
-      <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-['Zen_Maru_Gothic:Bold',sans-serif] text-sm leading-5 tracking-[1px]">
+      <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-maru font-bold text-sm leading-5 tracking-[1px]">
         {items.map((item, i) => {
           const isCurrent = i === items.length - 1;
           return (

@@ -25,7 +25,7 @@ export default function LearningDetailPage() {
       <div className="min-h-screen bg-page-bg">
         <SiteHeader />
         <main className="max-w-3xl mx-auto px-8 py-24 text-center">
-          <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#aaa] text-xl tracking-[1px] mb-8">
+          <p className="font-maru font-bold text-[#aaa] text-xl tracking-[1px] mb-8">
             該当する記録が見つかりませんでした
           </p>
           <BackLink to="/learning">学習記録一覧へ戻る</BackLink>
@@ -75,17 +75,17 @@ export default function LearningDetailPage() {
             <div className="p-8 sm:p-10">
               <div className="flex items-center justify-between mb-8">
                 <span
-                  className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-xs tracking-[1px] px-3 py-1 rounded-full bg-white"
+                  className="font-maru font-bold text-xs tracking-[1px] px-3 py-1 rounded-full bg-white"
                   style={{ color: record.accentColor }}
                 >
                   {record.category}
                 </span>
-                <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-xs text-[#666] tracking-[0.5px]">
+                <span className="font-kaku font-medium text-xs text-[#666] tracking-[0.5px]">
                   {record.date}
                 </span>
               </div>
 
-              <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-3xl tracking-[1.5px] mb-6 leading-snug">
+              <h1 className="font-maru font-bold text-[#222] text-3xl tracking-[1.5px] mb-6 leading-snug">
                 {record.title}
               </h1>
 
@@ -99,7 +99,7 @@ export default function LearningDetailPage() {
                     return (
                       <h2
                         key={i}
-                        className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-2xl tracking-[1px] ${spacing}`}
+                        className={`font-maru font-bold text-[#222] text-2xl tracking-[1px] ${spacing}`}
                       >
                         {block.text}
                       </h2>
@@ -109,6 +109,8 @@ export default function LearningDetailPage() {
                     return (
                       <img
                         key={i}
+                        loading="lazy"
+                        decoding="async"
                         src={block.image}
                         alt=""
                         className={`w-full rounded-[16px] border-2 border-border-dark object-cover ${spacing}`}
@@ -121,7 +123,7 @@ export default function LearningDetailPage() {
                       {block.text.map((paragraph, j) => (
                         <p
                           key={j}
-                          className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#333] text-base leading-loose tracking-[0.6px]"
+                          className="font-kaku font-medium text-[#333] text-base leading-loose tracking-[0.6px]"
                         >
                           {paragraph}
                         </p>

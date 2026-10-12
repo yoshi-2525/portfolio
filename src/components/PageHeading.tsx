@@ -8,13 +8,13 @@ type PageHeadingProps = {
 export default function PageHeading({ eyebrow, title, description, illustrationSrc }: PageHeadingProps) {
   const text = (
     <div>
-      <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-3">
+      <p className="font-kaku font-medium text-[#d57563] text-sm tracking-[1px] mb-3">
         {eyebrow}
       </p>
-      <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-accent-blue text-5xl tracking-[4px] leading-tight mb-6">
+      <h1 className="font-maru font-bold text-accent-blue text-5xl tracking-[4px] leading-tight mb-6">
         {title}
       </h1>
-      <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xl tracking-[1px] leading-relaxed max-w-2xl">
+      <p className="font-maru font-bold text-[#222] text-xl tracking-[1px] leading-relaxed max-w-2xl">
         {description.map((line, i) => (
           <span key={i}>
             {line}
@@ -34,6 +34,7 @@ export default function PageHeading({ eyebrow, title, description, illustrationS
       <div className="min-w-0 md:flex-1 animate-fade-in-left">{text}</div>
       <div className="w-full md:w-[525px] md:shrink-0 aspect-[525/284] rounded-[40px] border-2 border-border-dark overflow-hidden animate-fade-in-right" style={{ animationDelay: "150ms" }}>
         <img
+          fetchPriority="high"
           src={illustrationSrc}
           alt=""
           className="w-full h-full object-cover"

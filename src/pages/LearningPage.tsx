@@ -32,7 +32,7 @@ export default function LearningPage() {
 
         {filtered.length === 0 && (
           <div className="text-center py-20">
-            <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#aaa] text-xl tracking-[1px]">
+            <p className="font-maru font-bold text-[#aaa] text-xl tracking-[1px]">
               該当する記録がありません
             </p>
           </div>

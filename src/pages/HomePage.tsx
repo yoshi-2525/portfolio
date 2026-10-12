@@ -4,10 +4,10 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WorkCard from "@/components/WorkCard";
 import { cardColors, accentColors } from "@/styles/palette";
-import imgProfile from "@/imports/1920WLight/bdbe7ab60c7cedfdf13d0d0825db141c6ad80d55.png";
+import imgProfile from "@/imports/1920WLight/bdbe7ab60c7cedfdf13d0d0825db141c6ad80d55.webp";
 import { pageHeadings } from "@/data/pageHeadings";
 import { works } from "@/data/works";
-import homeImg from "@/imports/images/typing.png";
+import homeImg from "@/imports/images/typing.webp";
 
 const navCardConfig = [
   { key: "learning", color: cardColors.blue, accentColor: accentColors.blue },
@@ -32,7 +32,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-8 pt-16 pb-8">
           {/* Hero */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 mb-16">
-            <h1 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-accent-blue text-4xl sm:text-5xl lg:text-6xl tracking-[4px] leading-tight shrink-0 animate-fade-in-left">
+            <h1 className="font-maru font-bold text-accent-blue text-4xl sm:text-5xl lg:text-6xl tracking-[4px] leading-tight shrink-0 animate-fade-in-left">
               <span className="block whitespace-nowrap">ただひたすらに</span>
               <span className="block whitespace-nowrap">ものを創る</span>
             </h1>
@@ -41,6 +41,7 @@ export default function HomePage() {
             <div className="relative w-full max-w-xl mx-auto md:mx-0 md:shrink-0 animate-fade-in-right" style={{ animationDelay: "120ms" }}>
               <div className="rounded-[24px] border-1 border-border-dark overflow-hidden">
                 <img
+                  fetchPriority="high"
                   src={homeImg}
                   alt="デスクで作業する筆者のイラスト"
                   className="w-full h-full object-cover"
@@ -50,10 +51,10 @@ export default function HomePage() {
           </div>
 
             <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-12 my-12 p-8 rounded-[24px] bg-[#FAFAFA] border border-border-dark animate-fade-in-left" style={{ animationDelay: "150ms" }}>
-              <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#d57563] text-4xl tracking-[3px] shrink-0">
+              <h2 className="font-maru font-bold text-[#d57563] text-4xl tracking-[3px] shrink-0">
                 創作への思い
               </h2>
-              <div className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#222] text-base leading-loose tracking-[0.8px] max-w-3xl">
+              <div className="font-kaku font-medium text-[#222] text-base leading-loose tracking-[0.8px] max-w-3xl">
                 <p>創造性、洞察、ひらめき、アイデア・・・・</p>
                 <p>このような言葉に魅せられながら、私はこの世に生かされてきました。</p>
                 <p>わたしのポートフォリオでは、創造的な衝動に駆られ続けるわたしの軌跡を残していきます。</p>
@@ -76,18 +77,18 @@ export default function HomePage() {
                   animationDelay: `${index * 100 + 120}ms`,
                 } as CSSProperties}
               >
-                <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#d57563] text-white text-base font-['Zen_Maru_Gothic:Bold',sans-serif] tracking-[1.1px] px-6 py-2 rounded-full whitespace-nowrap">
+                <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#d57563] text-white text-base font-maru font-bold tracking-[1.1px] px-6 py-2 rounded-full whitespace-nowrap">
                   {card.label}
                 </span>
 
                 <div className="border-1 border-border-dark rounded-lg aspect-[16/9] mb-6 overflow-hidden">
-                  <img src={card.image} alt="" className="w-full h-full object-cover" />
+                  <img loading="lazy" decoding="async" src={card.image} alt="" className="w-full h-full object-cover" />
                 </div>
 
-                <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-accent-blue text-2xl tracking-[1px] mb-2">
+                <h2 className="font-maru font-bold text-accent-blue text-2xl tracking-[1px] mb-2">
                   {card.title}
                 </h2>
-                <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#222] text-base tracking-[0.5px] leading-relaxed">
+                <p className="font-kaku font-medium text-[#222] text-base tracking-[0.5px] leading-relaxed">
                   {card.description.join("")}
                 </p>
               </Link>
@@ -106,10 +107,10 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto py-4">
 
             <div className="mb-10">
-              <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#d57563] text-sm tracking-[1px] mb-3">
+              <p className="font-kaku font-medium text-[#d57563] text-sm tracking-[1px] mb-3">
                 WORKS
               </p>
-              <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-accent-blue text-4xl tracking-[3px]">
+              <h2 className="font-maru font-bold text-accent-blue text-4xl tracking-[3px]">
                 作品集
               </h2>
             </div>

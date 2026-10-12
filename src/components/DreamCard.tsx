@@ -31,17 +31,17 @@ export default function DreamCard({ dream, index, reverse = false }: DreamCardPr
           }`}
         >
           <span
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] tabular-nums text-3xl w-20 h-20 flex items-center justify-center rounded-full border-2 border-border-dark bg-white shrink-0"
+            className="font-maru font-bold tabular-nums text-3xl w-20 h-20 flex items-center justify-center rounded-full border-2 border-border-dark bg-white shrink-0"
             style={{ color: dream.accentColor }}
           >
             {number}
           </span>
           <div className={reverse ? "text-right" : undefined}>
-            <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-2xl tracking-[1.5px]">
+            <h2 className="font-maru font-bold text-[#222] text-2xl tracking-[1.5px]">
               {dream.title}
             </h2>
             <p
-              className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-sm tracking-[0.5px] mt-0.5"
+              className="font-kaku font-medium text-sm tracking-[0.5px] mt-0.5"
               style={{ color: dream.accentColor }}
             >
               {dream.subtitle}
@@ -51,7 +51,7 @@ export default function DreamCard({ dream, index, reverse = false }: DreamCardPr
 
         {/* Description */}
         <div className={reverse ? "md:order-1" : "md:order-2"}>
-          <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#333] text-base leading-relaxed tracking-[0.5px]">
+          <p className="font-kaku font-medium text-[#333] text-base leading-relaxed tracking-[0.5px]">
             {dream.description}
           </p>
         </div>

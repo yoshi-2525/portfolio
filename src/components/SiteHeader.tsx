@@ -19,7 +19,7 @@ export default function SiteHeader() {
     <header className="relative flex items-center justify-between px-8 py-4 border-b-2 border-border-gray bg-page-bg">
       <Link
         to="/"
-        className="order-2 md:order-1 font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-2xl tracking-[1.76px]"
+        className="order-2 md:order-1 font-maru font-bold text-[#222] text-2xl tracking-[1.76px]"
       >
         わたしのポートフォリオ
       </Link>
@@ -30,7 +30,7 @@ export default function SiteHeader() {
           <Link
             key={label}
             to={to}
-            className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
+            className={`font-maru font-bold text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
               isCurrent(to) ? "text-[#d57563]" : "text-[#222]"
             }`}
           >
@@ -80,7 +80,7 @@ export default function SiteHeader() {
             key={label}
             to={to}
             onClick={() => setIsMenuOpen(false)}
-            className={`font-['Zen_Maru_Gothic:Bold',sans-serif] text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
+            className={`font-maru font-bold text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
               isCurrent(to) ? "text-[#d57563]" : "text-[#222]"
             }`}
           >

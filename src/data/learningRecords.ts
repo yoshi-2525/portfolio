@@ -1,6 +1,6 @@
 import type { LearningRecord } from "@/components/LearningRecordCard";
 import { cardColors, accentColors } from "@/styles/palette";
-import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.png";
+import imgDreamsHero from "@/imports/1920WLight/a9ac80ec745b07e07c3edd921ec5b28762ff0782.webp";
 
 export type ContentBlock =
   | { type: "heading"; text: string }

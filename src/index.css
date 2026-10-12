@@ -48,6 +48,10 @@
   --color-ink-666: #666666;
   --color-ink-888: #888888;
 
+  /* Fonts are loaded from Google Fonts in index.html (split by unicode-range, font-display: swap). */
+  --font-maru: "Zen Maru Gothic", sans-serif;
+  --font-kaku: "Zen Kaku Gothic Antique", sans-serif;
+
   --animate-fade-in-up: fade-in-up 0.6s ease-out both;
   --animate-fade-in-right: fade-in-right 0.8s ease-out both;
   --animate-fade-in-left: fade-in-left 0.8s ease-out both;
@@ -84,18 +88,4 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-@font-face {
-  font-family: "Zen Maru Gothic:Bold";
-  font-style: normal;
-  font-weight: 700;
-  src: url("https://static.figma.com/font/ZenMaruGothic-Bold_1") format("woff2");
-}
-
-@font-face {
-  font-family: "Zen Kaku Gothic Antique:Medium";
-  font-style: normal;
-  font-weight: 500;
-  src: url("https://static.figma.com/font/ZenKakuGothicAntique-Medium_1") format("woff2");
 }

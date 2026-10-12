@@ -1,17 +1,17 @@
-import imgTheme01 from "@/imports/1920WLight/10fd8431ae6d9c2d06134d8fb03827958358aaad.png";
-import imgIdea from "@/imports/images/idea.png";
-import imgBookshelf from "@/imports/images/bookshelf.png";
-import imgHell from "@/imports/images/hell.png";
-import imgWorkshopPersona from "@/imports/images/works/workshop/persona_man.png";
-import imgWorkshopStory from "@/imports/images/works/workshop/story.png";
+import imgTheme01 from "@/imports/1920WLight/10fd8431ae6d9c2d06134d8fb03827958358aaad.webp";
+import imgIdea from "@/imports/images/idea.webp";
+import imgBookshelf from "@/imports/images/bookshelf.webp";
+import imgHell from "@/imports/images/hell.webp";
+import imgWorkshopPersona from "@/imports/images/works/workshop/persona_man.webp";
+import imgWorkshopStory from "@/imports/images/works/workshop/story.webp";
 import { cardColors, accentColors } from "@/styles/palette";
-import imgPortfolioClip from "@/imports/images/works/portfolio/designClip.png";
-import imgPortfolioClaude from "@/imports/images/works/portfolio/claudeCode.png";
-import imgPortfolioCommitment from "@/imports/images/works/portfolio/commitment.png";
-import imgPortfolioDesignSystem from "@/imports/images/works/portfolio/designSystem.png";
-import imgPortfolioLearnLog from "@/imports/images/works/portfolio/learnLog.png";
-import imgPortfolioHomeList from "@/imports/images/works/portfolio/homeList.png";
-import imgPortfolioHomeDetail from "@/imports/images/works/portfolio/homeDetail.png";
+import imgPortfolioClip from "@/imports/images/works/portfolio/designClip.webp";
+import imgPortfolioClaude from "@/imports/images/works/portfolio/claudeCode.webp";
+import imgPortfolioCommitment from "@/imports/images/works/portfolio/commitment.webp";
+import imgPortfolioDesignSystem from "@/imports/images/works/portfolio/designSystem.webp";
+import imgPortfolioLearnLog from "@/imports/images/works/portfolio/learnLog.webp";
+import imgPortfolioHomeList from "@/imports/images/works/portfolio/homeList.webp";
+import imgPortfolioHomeDetail from "@/imports/images/works/portfolio/homeDetail.webp";
 
 // One card = one image + one heading + any number of body paragraphs.
 export type WorksContentCard = {

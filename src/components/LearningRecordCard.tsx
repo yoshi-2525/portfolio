@@ -34,23 +34,23 @@ export default function LearningRecordCard({ record, index = 0 }: LearningRecord
       <div className="flex flex-col flex-1 p-7">
         <div className="flex items-center justify-between mb-4">
           <span
-            className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-xs tracking-[1px] px-3 py-1 rounded-full bg-white"
+            className="font-maru font-bold text-xs tracking-[1px] px-3 py-1 rounded-full bg-white"
             style={{ color: record.accentColor }}
           >
             {record.category}
           </span>
-          <span className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-xs text-[#666] tracking-[0.5px]">
+          <span className="font-kaku font-medium text-xs text-[#666] tracking-[0.5px]">
             {record.date}
           </span>
         </div>
 
         <div className="flex items-center text-2xl leading-snug min-h-[2lh] mb-3">
-          <h2 className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] tracking-[1px] line-clamp-2">
+          <h2 className="font-maru font-bold text-[#222] tracking-[1px] line-clamp-2">
             {record.title}
           </h2>
         </div>
 
-        <p className="font-['Zen_Kaku_Gothic_Antique:Medium',sans-serif] text-[#444] text-sm tracking-[0.5px] leading-relaxed mb-5 line-clamp-3 min-h-[3lh]">
+        <p className="font-kaku font-medium text-[#444] text-sm tracking-[0.5px] leading-relaxed mb-5 line-clamp-3 min-h-[3lh]">
           {record.description}
         </p>
 

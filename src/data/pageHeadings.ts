@@ -1,8 +1,8 @@
-import imgLearnLog from "@/imports/images/learnlog.png";
-import imgCommitment from "@/imports/images/commitment.png";
-import imgWorks from "@/imports/images/works2.png";
-import imgDreamsHero from "@/imports/images/dream.png";
-import imgProfile from "@/imports/images/profile2.png";
+import imgLearnLog from "@/imports/images/learnlog.webp";
+import imgCommitment from "@/imports/images/commitment.webp";
+import imgWorks from "@/imports/images/works2.webp";
+import imgDreamsHero from "@/imports/images/dream.webp";
+import imgProfile from "@/imports/images/profile2.webp";
 
 export type PageHeadingContent = {
   to: string;

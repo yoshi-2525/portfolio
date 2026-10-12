@@ -12,7 +12,7 @@ export default function SiteFooter({ backLink }: SiteFooterProps) {
       }`}
     >
       {backLink && <BackLink to={backLink.to}>{backLink.label}</BackLink>}
-      <p className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-[#222] text-xs tracking-[1.1px]">
+      <p className="font-maru font-bold text-[#222] text-xs tracking-[1.1px]">
         © 2026 Yoshitaka Inui. All Right Reserved.
       </p>
     </footer>

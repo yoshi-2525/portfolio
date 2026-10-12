@@ -20,13 +20,13 @@ export default function LearningNavItem({ record, isActive }: LearningNavItemPro
       } as CSSProperties}
     >
       <span
-        className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-xs tracking-[1px] block mb-1"
+        className="font-maru font-bold text-xs tracking-[1px] block mb-1"
         style={{ color: isActive ? record.accentColor : "#aaa" }}
       >
         {record.date}
       </span>
       <span
-        className="font-['Zen_Maru_Gothic:Bold',sans-serif] text-base tracking-[0.8px] block"
+        className="font-maru font-bold text-base tracking-[0.8px] block"
         style={{ color: isActive ? "#222" : "#666" }}
       >
         {record.title}
