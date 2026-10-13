@@ -1,11 +1,18 @@
 import imgTheme01 from "@/imports/1920WLight/10fd8431ae6d9c2d06134d8fb03827958358aaad.webp";
-import imgIdea from "@/imports/images/idea.webp";
 import imgBookshelf from "@/imports/images/bookshelf.webp";
 import imgHell from "@/imports/images/hell.webp";
 import imgWorkshopPersona from "@/imports/images/works/workshop/persona_man.webp";
 import imgWorkshopStory from "@/imports/images/works/workshop/story.webp";
 import imgWorkshopKeyList from "@/imports/images/works/workshop/TAIWA_43_key.webp";
 import imgWorkshopKeyDetail from "@/imports/images/works/workshop/TAIWA_31_key.webp";
+import imgWorkshopDesignSystem from "@/imports/images/works/workshop/designSystem.webp";
+import imgWorkshopClaude from "@/imports/images/works/workshop/claudeCode.webp";
+import imgWorkshopConcept from "@/imports/images/works/workshop/TAIWA_169_key.webp";
+import imgWorkshopInfoArch from "@/imports/images/works/workshop/infoArch.webp";
+import imgWorkshopCodeReview from "@/imports/images/works/workshop/codeReview.webp";
+import imgWorkshopKaizen from "@/imports/images/works/workshop/kaizen.webp";
+import imgWorkshopBackground from "@/imports/images/works/workshop/background.webp";
+
 import { cardColors, accentColors } from "@/styles/palette";
 import type { ContentBlock } from "@/data/learningRecords";
 import imgPortfolioClip from "@/imports/images/works/portfolio/designClip.webp";
@@ -130,7 +137,7 @@ const workInputs: Work[] = [
     process: [
       {
         heading: "制作の背景",
-        image: imgIdea,
+        image: imgWorkshopBackground,
         body: ["日々の生活に哲学的な視点を取り入れることで、内面を豊かにしてほしいという思いから制作しました。"],
       },
       {
@@ -148,40 +155,41 @@ const workInputs: Work[] = [
       },
       {
         heading: "アプリ制作",
-        image: imgHell,
+        image: imgWorkshopClaude,
         body: ["本来のフローであれば、機能設計やコンセプト設計をすべきですが、AIでアプリを作ってみたいという思いを強く持っていたので、まずはClaudeCodeを使用して、簡単なワークショップのアプリ作ってみました。",
           "最初はAIが作った感が丸出しで機能も不足していたので、ペルソナがアプリを使う際にどんなことが必要になるのかを考え、このアプリの改善策を考え続けました。そして作成してほしい機能をClaude Codeを使用して、実装し続けていくことによって、徐々に利便性や完成度の高いアプリになっていきました。"]
       },
       {
         heading: "コンセプト設計",
-        image: imgHell,
-        body: ["ある程度アプリがものになった段階で、このアプリのコンセプトを決めました。対話型ワークショップであることを示し、参加者に対話することの有意義さを感じてほしかったので、サービス名は「TAIWA」という名前にしています。",
-          "また対話には守るべきルールがあるため、そのルールを掲載し、参加者が安心して対話できる"
+        image: imgWorkshopConcept,
+        body: ["ある程度アプリの形が整った段階で、サービスのコンセプトを明確にしました。対話型ワークショップであることを伝えるとともに、参加者に対話することの有意義さを感じてもらいたいと考え、サービス名を「TAIWA」としました。",
+          "また、夜の帰り道に抱える心のモヤモヤを優しく掬い上げる場にしたいという思いから、夜空をモチーフにデザインしました。さらに、参加者が安心して対話に臨めるよう、対話のルールを掲載するなど、安心して参加できる環境づくりを意識して、デザインや情報設計を工夫しました。"
         ]
       },
       {
-        heading: "機能設計",
-        image: imgHell,
-        body: ["サービスストーリーマップを作成し、このアプリを通してユーザーがどのようなことを実現してほしいのかを考えました。最終的なゴールは日常的に抱えている内面的なモヤモヤを仲間とともに言語化し続けていくことによって、心が穏やかになり自分の内面を豊かにしていくことです。",
-          "その最終的なゴールを実現するために、どんな機能が必要なを考え、このサービスを使用する際のユーザー体験を考え、サービスを設計していきました。"]
+        heading: "情報設計",
+        image: imgWorkshopInfoArch,
+        body: ["まずワークショップを中心となるオブジェクトとして捉え、そこから情報設計を行い、必要な機能を組み立てていきました。ワークショップには定員や参加費など、さまざまな情報が紐づいています。ワークショップの各項目について、設定できる値の上限・下限や編集の可否などを、実際の利用シーンを想定しながら検討しました。",
+          "本来であれば事前に設計図を作成したうえで開発を進めるべきですが、今回はアプリを実際に作りながら、利用者がどのように操作するのかを常にイメージし、頭の中で情報設計を進めました。その過程で必要だと判断した機能を順次追加し、利用者の視点を意識しながらアプリを形にしていきました。"
+        ]
       },
       {
         heading: "デザインシステムの作成",
-        image: imgHell,
+        image: imgWorkshopDesignSystem,
         body: ["デザインに一貫性を持たせるため、Figma MCPを活用し、Claudeを使ってデザインシステムを作成しました。これによりFigma上のデザインとコードの各要素の対応関係が明確になり、共通のデザイン要素を再利用しやすくなりました。",
           "デザインシステムを整備したことによって、Claudeに新しい機能の追加を依頼しても、既存のデザインとの一貫性を保った画面を作成できるようになりました。またデザインに微修正が必要な場合は、Figma上で修正したフレームをClaudeと連携させることで、その変更をコードに反映しやすい仕組みを構築しました。"
         ]
       },
       {
         heading: "コードのリファクタリング",
-        image: imgHell,
+        image: imgWorkshopCodeReview,
         body: ["Claudeのコードレビュー用のサブエージェントを作成し、プログラミングスクールの講師にもコードを確認していただきながら、Claudeが生成したコードを継続的に改善できるようにしました。",
           "特にコンポーネント化できる部分は積極的に共通化し、処理を効率化できる箇所についても、Claudeにレビューを依頼して改善に取り組みました。またコードをただ生成するだけでなく、自分自身のコードの理解を深めるために、各ファイルの役割や処理の流れを把握することも意識しました。"
         ]
       },
       {
         heading: "このアプリをよりよくするために",
-        image: imgHell,
+        image: imgWorkshopKaizen,
         body: ["主催者は選抜形式にするのか？それとも参加者にレビューして貰うのか？等、このワークショップを安心できる場にするための品質保証の仕組みが備わっていません。",
           "利用者・主催者ともに安心してワークショップに参加してもらうためには、「利用者に危ない人はいないか？」や「この対話の場は怪しくないか？」等をきちんと確認しないといけないです。この確認の仕組みを考慮できていないので、この仕組みを考えていくことが、このアプリの改善点と考えています。"
         ]

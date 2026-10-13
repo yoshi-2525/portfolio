@@ -1,5 +1,7 @@
 {
-  "description": "Showcase your skills and aspirations with a portfolio web app that includes a learning log and a dream goals section for personal growth.",
+  "title": "わたしのポートフォリオ",
+  "description": "創造的な衝動に駆られ続けるわたしの軌跡を残すポートフォリオです。作品集、学習記録、創作へのこだわり、将来の夢を書き留めています。",
+  "language": "ja",
   "robots": {
     "index": false
   },
