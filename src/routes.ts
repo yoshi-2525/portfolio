@@ -8,6 +8,7 @@ import LearningDetailPage from "./pages/LearningDetailPage";
 import CommitmentPage from "./pages/CommitmentPage";
 import DreamsPage from "./pages/DreamsPage";
 import ProfilePage from "./pages/ProfilePage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
       { path: "/commitment", Component: CommitmentPage },
       { path: "/dreams", Component: DreamsPage },
       { path: "/profile", Component: ProfilePage },
+      { path: "*", Component: NotFoundPage },
     ],
   },
 ]);
