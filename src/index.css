@@ -48,6 +48,9 @@
   --color-ink-666: #666666;
   --color-ink-888: #888888;
 
+  /* External brand marks keep the brand's own color instead of a site accent. */
+  --color-brand-github: #24292f;
+
   /* Fonts are loaded from Google Fonts in index.html (split by unicode-range, font-display: swap). */
   --font-maru: "Zen Maru Gothic", sans-serif;
   --font-kaku: "Zen Kaku Gothic Antique", sans-serif;

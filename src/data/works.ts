@@ -5,6 +5,7 @@ import imgHell from "@/imports/images/hell.webp";
 import imgWorkshopPersona from "@/imports/images/works/workshop/persona_man.webp";
 import imgWorkshopStory from "@/imports/images/works/workshop/story.webp";
 import { cardColors, accentColors } from "@/styles/palette";
+import type { ContentBlock } from "@/data/learningRecords";
 import imgPortfolioClip from "@/imports/images/works/portfolio/designClip.webp";
 import imgPortfolioClaude from "@/imports/images/works/portfolio/claudeCode.webp";
 import imgPortfolioCommitment from "@/imports/images/works/portfolio/commitment.webp";
@@ -30,7 +31,12 @@ export type Work = {
   listImage: string;
   // 作品詳細ページの上部で使う画像
   detailImage: string;
-  description: string;
+  // 作品一覧のカード（WorkCard）で使う短い紹介文
+  listDescription: string;
+  // 作品詳細ページで使う紹介文。学習記録の content と同じく、見出し・本文・画像のブロックを並べる
+  detailDescription: ContentBlock[];
+  // GitHub リポジトリの URL（ないときは省略）
+  githubUrl?: string;
   process: WorksContentCard[];
   color: string;
   accentColor: string;
@@ -45,8 +51,12 @@ const workInputs: Work[] = [
     year: "2026",
     listImage: imgPortfolioHomeList,
     detailImage: imgPortfolioHomeDetail,
-    description:
+    githubUrl: "https://github.com/yoshi-2525/portfolio",
+    listDescription:
       "わたしを表現するためのサイトを製作してみました。私の表現方法をじっくり考え、言葉をたくさん書きたかったため、大量の日本語が表示されても、苦にならないデザインを心がけました。",
+    detailDescription: [
+      { type: "body", text: ["わたしを表現するためのサイトを製作してみました。私の表現方法をじっくり考え、言葉をたくさん書きたかったため、大量の日本語が表示されても、苦にならないデザインを心がけました。"] },
+    ],
     process: [
       {
         heading: "制作の背景",
@@ -110,8 +120,11 @@ const workInputs: Work[] = [
     year: "2026",
     listImage: imgIdea,
     detailImage: imgIdea,
-    description:
+    listDescription:
       "哲学を身近にするためのワークショップ開催支援アプリ。参加者が気軽に哲学的な問いを持ち寄り、対話できる場を設計しました。",
+    detailDescription: [
+      { type: "body", text: ["哲学を身近にするためのワークショップ開催支援アプリ。参加者が気軽に哲学的な問いを持ち寄り、対話できる場を設計しました。"] },
+    ],
     process: [
       {
         heading: "制作の背景",

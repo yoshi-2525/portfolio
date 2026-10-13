@@ -58,7 +58,7 @@ export default function WorkCard({ work, index = 0 }: WorkCardProps) {
             </p>
 
             <p className="font-kaku font-medium text-[#333] text-base leading-relaxed tracking-[0.5px] mb-5">
-              {work.description}
+              {work.listDescription}
             </p>
           </div>
 

@@ -1,5 +1,10 @@
 import type { Principle } from "@/components/CommitmentNavItem";
 import { cardColors, accentColors } from "@/styles/palette";
+import imgHell from "@/imports/images/hell.webp";
+import imgIdea from "@/imports/images/idea.webp";
+import imgBookshelf from "@/imports/images/bookshelf.webp";
+import imgExpertise from "@/imports/images/expertise.webp";
+import imgSharp from "@/imports/images/sharp.webp";
 
 export const principles: Principle[] = [
   {
@@ -7,7 +12,7 @@ export const principles: Principle[] = [
     title: "ものづくり地獄の住人になる",
     color: cardColors.coral,
     accentColor: accentColors.coral,
-    image: "src/imports/images/hell.png",
+    image: imgHell,
     summary: "創作活動は常に不満が残る終わりのない地獄である",
     body: [
       "ものづくりにおいて、創ったものに対して、満足することはなく、常にそのものに改善する余白が生まれます。完璧で納得のいくものなんてできません。納得した時点で創作活動は終わってしまいます。",
@@ -19,7 +24,7 @@ export const principles: Principle[] = [
     title: "とにかく量を生み出す",
     color: cardColors.blue,
     accentColor: accentColors.blue,
-    image: "src/imports/images/idea.png",
+    image: imgIdea,
     summary: "創作活動の質と量は比例するので、とにかく量をこなすことを意識する",
     body: [
       "良いものを創作するためには、いいものを創ろうと考えこむより、まずは手を動かしてたくさんものを創ってみるのが大事だと考えています。たくさんものを創った経験が、次のものを創るための貴重な素材となり、その素材を生かすことによって、新たなものが生まれてきます。",
@@ -31,7 +36,7 @@ export const principles: Principle[] = [
     title: "知識の幅を広げる",
     color: cardColors.amber,
     accentColor: accentColors.brown,
-    image: "src/imports/images/bookshelf.png",
+    image: imgBookshelf,
     summary: "アイデアは既存の知識の組み合わせから生まれる",
     body: [
       "アイデアは既存の知識の組み合わせから生まれます。アイデアをたくさん生みだすには、組み合わせを考えるための知識の幅がないといけません。そのために私は哲学・美学・心理学・社会学などの人文系の知識を中心に、幅広く知識を吸収することを意識しています。",
@@ -43,7 +48,7 @@ export const principles: Principle[] = [
     title: "専門知を重んじる",
     color: cardColors.purple,
     accentColor: accentColors.purple,
-    image: "src/imports/images/expertise.png",
+    image: imgExpertise,
     summary: "私が無知であることを素直に認め、優れたものを作るために、専門的な知識に頼ることを意識する",
     body: [
       "世の中にはたくさんの専門知識にあふれていて、優れたものを作り上げるには到底一人ではできません。先達の築いた知識に頼ることが不可欠です。優れたアプリケーションのデザインを製作するためには、UI/UX・情報設計等の教科書的な知識や、色彩やレイアウト等のデザインの理論を土台にしなければいけません。",
@@ -56,7 +61,7 @@ export const principles: Principle[] = [
     title: "尖らせられるところはとことん尖らせる",
     color: cardColors.green,
     accentColor: accentColors.green,
-    image: "src/imports/images/sharp.png",
+    image: imgSharp,
     summary: "全体を見る俯瞰的な視線を常に保ちながら、尖らせたいところは尖らせる",
     body: [
       "何かをデザインする際には全体的なバランス感が大事だと考えています。理由は全体的なぱっと見のイメージが、受け手の最初の印象を決めているはずだからです。バランスが悪すぎると、その時点で受け手はそのものを拒絶しかねません。",

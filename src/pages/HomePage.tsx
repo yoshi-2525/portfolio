@@ -106,13 +106,21 @@ export default function HomePage() {
 
           <div className="max-w-6xl mx-auto py-4">
 
-            <div className="mb-10">
-              <p className="font-kaku font-medium text-[#d57563] text-sm tracking-[1px] mb-3">
-                WORKS
-              </p>
-              <h2 className="font-maru font-bold text-accent-blue text-4xl tracking-[3px]">
-                作品集
-              </h2>
+            <div className="mb-10 flex items-end justify-between gap-4">
+              <div>
+                <p className="font-kaku font-medium text-accent-coral text-sm tracking-[1px] mb-3">
+                  WORKS
+                </p>
+                <h2 className="font-maru font-bold text-accent-blue text-4xl tracking-[3px]">
+                  作品集
+                </h2>
+              </div>
+              <Link
+                to="/works"
+                className="shrink-0 inline-flex items-center gap-2 font-maru font-bold text-accent-coral text-base tracking-[1px] hover:opacity-70 transition-opacity"
+              >
+                作品一覧を見る →
+              </Link>
             </div>
 
             <div className="flex flex-col gap-8">
