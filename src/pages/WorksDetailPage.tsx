@@ -51,7 +51,8 @@ export default function WorksDetailPage() {
           style={{ backgroundColor: work.color }}
         >
           {/* Image */}
-          <div className="relative overflow-hidden" style={{ minHeight: 320 }}>
+          {/* Image — fixed 3:1 at every width */}
+          <div className="relative overflow-hidden aspect-[3/1]">
             <img
               fetchPriority="high"
               src={work.detailImage}

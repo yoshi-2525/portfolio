@@ -78,20 +78,20 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
   }, [process.length]);
 
   return (
-    <div className="flex items-center gap-2 sm:gap-4">
+    <div className="flex items-center gap-2 md:gap-4">
       {activeCard > 0 ? (
         <button
           onClick={() => goTo(activeCard - 1)}
           aria-label="前の項目へ"
-          className="shrink-0 w-9 h-9 sm:w-16 sm:h-16 rounded-full border-2 border-border-gray bg-white flex items-center justify-center opacity-70 transition-opacity shadow hover:opacity-100"
+          className="shrink-0 w-8 h-8 md:w-16 md:h-16 rounded-full border-2 border-border-gray bg-white flex items-center justify-center opacity-70 transition-opacity shadow hover:opacity-100"
           style={{ color: accentColor }}
         >
-          <svg className="w-5 h-5 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-4 h-4 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
       ) : (
-        <span className="shrink-0 w-9 h-9 sm:w-16 sm:h-16" />
+        <span className="shrink-0 w-8 h-8 md:w-16 md:h-16" />
       )}
 
       <div className="flex-1 min-w-0">
@@ -151,15 +151,15 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
         <button
           onClick={() => goTo(activeCard + 1)}
           aria-label="次の項目へ"
-          className="shrink-0 w-9 h-9 sm:w-16 sm:h-16 rounded-full border-2 border-border-gray bg-white flex items-center justify-center opacity-70 transition-opacity shadow hover:opacity-100"
+          className="shrink-0 w-8 h-8 md:w-16 md:h-16 rounded-full border-2 border-border-gray bg-white flex items-center justify-center opacity-70 transition-opacity shadow hover:opacity-100"
           style={{ color: accentColor }}
         >
-          <svg className="w-5 h-5 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-4 h-4 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 18 15 12 9 6" />
           </svg>
         </button>
       ) : (
-        <span className="shrink-0 w-9 h-9 sm:w-16 sm:h-16" />
+        <span className="shrink-0 w-8 h-8 md:w-16 md:h-16" />
       )}
     </div>
   );

@@ -4,6 +4,8 @@ import imgBookshelf from "@/imports/images/bookshelf.webp";
 import imgHell from "@/imports/images/hell.webp";
 import imgWorkshopPersona from "@/imports/images/works/workshop/persona_man.webp";
 import imgWorkshopStory from "@/imports/images/works/workshop/story.webp";
+import imgWorkshopKeyList from "@/imports/images/works/workshop/TAIWA_43_key.webp";
+import imgWorkshopKeyDetail from "@/imports/images/works/workshop/TAIWA_31_key.webp";
 import { cardColors, accentColors } from "@/styles/palette";
 import type { ContentBlock } from "@/data/learningRecords";
 import imgPortfolioClip from "@/imports/images/works/portfolio/designClip.webp";
@@ -114,12 +116,12 @@ const workInputs: Work[] = [
   },
   {
     id: 2,
-    title: "哲学ワークショップ",
-    subtitle: "Philosophy Workshop App",
+    title: "対話型ワークショップ管理アプリ「TAIWA」",
+    subtitle: "Workshop App",
     category: "アプリ開発",
     year: "2026",
-    listImage: imgIdea,
-    detailImage: imgIdea,
+    listImage: imgWorkshopKeyList,
+    detailImage: imgWorkshopKeyDetail,
     listDescription:
       "哲学を身近にするためのワークショップ開催支援アプリ。参加者が気軽に哲学的な問いを持ち寄り、対話できる場を設計しました。",
     detailDescription: [
