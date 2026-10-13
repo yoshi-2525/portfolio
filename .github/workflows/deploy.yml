@@ -18,8 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          lfs: true # 画像は Git LFS 管理なので実体を取得する
+
+      # 画像は Git LFS 管理。ビルドに使う src/ 配下の実体だけを取得し、
+      # image-originals/ の元画像（PNG）はダウンロードしない
+      - run: git lfs pull --include="src/**"
 
       - uses: pnpm/action-setup@v4
         with:
