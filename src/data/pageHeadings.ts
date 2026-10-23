@@ -20,8 +20,7 @@ export const pageHeadings = {
     eyebrow: "WORKS",
     title: "作品集",
     description: [
-      "ただひたすらにものを創り続けた記録です。",
-      "デザインから実装まで、ひとつひとつ手がけてきました。",
+      "創作物をここに書き記しています。",
     ],
     illustrationSrc: imgWorks,
   },
@@ -32,7 +31,6 @@ export const pageHeadings = {
     title: "学習した記録",
     description: [
       "価値あるものを創作するために必要な知識をまとめています。",
-      "日々の学びの軌跡を、ここに刻んでいきます。",
     ],
     illustrationSrc: imgLearnLog,
   },
@@ -50,8 +48,7 @@ export const pageHeadings = {
     eyebrow: "FUTURE DREAMS",
     title: "わたしの将来の夢",
     description: [
-      "創作を通して為したいことを書き留めています。",
-      "未来の私に見せたい景色を、ここに描いています。",
+      "創作を通して為したいことを書き留めています。",     
     ],
     illustrationSrc: imgDreamsHero,
   },
