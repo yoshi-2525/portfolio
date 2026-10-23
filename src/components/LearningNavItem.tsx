@@ -11,7 +11,7 @@ export default function LearningNavItem({ record, isActive }: LearningNavItemPro
   return (
     <Link
       to={`/learning/${record.id}`}
-      className={`block text-left rounded-[16px] border-2 px-5 py-4 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 ${
+      className={`block text-left rounded-xl md:rounded-2xl border-2 px-3.5 py-2.5 md:px-5 md:py-4 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 ${
         isActive ? "border-[var(--accent)]" : "border-border-gray hover:border-[var(--accent)]"
       }`}
       style={{
@@ -20,13 +20,13 @@ export default function LearningNavItem({ record, isActive }: LearningNavItemPro
       } as CSSProperties}
     >
       <span
-        className="font-maru font-bold text-xs tracking-[1px] block mb-1"
+        className="font-maru font-bold text-[10px] md:text-xs tracking-[1px] block mb-0.5 md:mb-1"
         style={{ color: isActive ? record.accentColor : "#aaa" }}
       >
         {record.date}
       </span>
       <span
-        className="font-maru font-bold text-base tracking-[0.8px] block"
+        className="font-maru font-bold text-sm tracking-[0.8px] leading-snug block"
         style={{ color: isActive ? "#222" : "#666" }}
       >
         {record.title}

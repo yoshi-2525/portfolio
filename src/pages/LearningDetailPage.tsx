@@ -56,12 +56,15 @@ export default function LearningDetailPage() {
 
         <LearningCategoryFilter categories={categories} active={active} onChange={setActive} />
 
+        <div className="mb-6">
+          <BackLink to="/learning">学習記録一覧へ戻る</BackLink>
+        </div>
+
         {/* Two-panel layout: navigation (left) + detail (right) */}
         <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
 
           {/* Left: navigation between records */}
           <nav className="flex flex-col gap-4 md:sticky md:top-8">
-            <BackLink to="/learning">学習記録一覧へ戻る</BackLink>
             {filtered.map((r) => (
               <LearningNavItem key={r.id} record={r} isActive={r.id === record.id} />
             ))}
@@ -74,7 +77,7 @@ export default function LearningDetailPage() {
             <div className="h-1.5 bg-[#d57563]" />
 
             <div className="p-8 sm:p-10">
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-6">
                 <span
                   className="font-maru font-bold text-xs tracking-[1px] px-3 py-1 rounded-full bg-white"
                   style={{ color: record.accentColor }}

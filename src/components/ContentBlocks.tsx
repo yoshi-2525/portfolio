@@ -36,12 +36,13 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
           );
         }
         // A body block is one section; its paragraphs sit closer together than the gap between sections.
+        // "\n" inside a paragraph is rendered as a line break (whitespace-pre-line).
         return (
           <section key={i} className={`flex flex-col gap-6 ${spacing}`}>
             {block.text.map((paragraph, j) => (
               <p
                 key={j}
-                className="font-kaku font-medium text-[#333] text-base leading-loose tracking-[0.6px]"
+                className="font-kaku font-medium text-[#333] text-base leading-loose tracking-[0.6px] whitespace-pre-line"
               >
                 {paragraph}
               </p>
