@@ -58,6 +58,10 @@
   --animate-fade-in-up: fade-in-up 0.6s ease-out both;
   --animate-fade-in-right: fade-in-right 0.8s ease-out both;
   --animate-fade-in-left: fade-in-left 0.8s ease-out both;
+  /* PageHeading. Site easing: cubic-bezier(0.22, 0.61, 0.35, 1). */
+  --animate-line-up: line-up 0.8s cubic-bezier(0.22, 0.61, 0.35, 1) both;
+  --animate-unveil: unveil 0.8s cubic-bezier(0.22, 0.61, 0.35, 1) both;
+  --animate-settle: settle 1.2s cubic-bezier(0.22, 0.61, 0.35, 1) both;
 }
 
 @keyframes fade-in-up {
@@ -90,5 +94,32 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes line-up {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes unveil {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes settle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
   }
 }
