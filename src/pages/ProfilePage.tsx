@@ -37,14 +37,7 @@ const timeline = [
     title: "プログラミングの学習を本格的に開始",
     description: "東京デジタルアカデミー若手エンジニアコースのReact上級コースを受講。ReactやNext.jsの基礎的な知識を習得。",
     color: cardColors.green,
-  },
-  {
-    year: "2026.09",
-    title: "UI/UXデザイナーを本格的に目指す",
-    description: "ものづくりを仕事にしたいため、ポートフォリオを製作しながら、UI/UXデザイイナーになることを目指す。",
-    color: cardColors.amber,
-    isCurrent: true,
-  },
+  }
 ];
 
 export default function ProfilePage() {

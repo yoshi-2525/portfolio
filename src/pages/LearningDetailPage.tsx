@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -15,9 +15,18 @@ export default function LearningDetailPage() {
   const { id } = useParams<{ id: string }>();
   const record = records.find((r) => r.id === Number(id));
   const [active, setActive] = useState("すべて");
+  const articleRef = useRef<HTMLElement>(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // 初回表示はページ先頭、ナビゲーションで記事を切り替えたときは記事の先頭へ
+    if (isFirstRender.current || !articleRef.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      return;
+    }
+    const top = articleRef.current.getBoundingClientRect().top + window.scrollY - 32;
+    window.scrollTo(0, top);
   }, [id]);
   const filtered = active === "すべて" ? records : records.filter((r) => r.category === active);
 
@@ -71,6 +80,7 @@ export default function LearningDetailPage() {
           </nav>
           {/* Right: detail */}
           <article
+            ref={articleRef}
             className="rounded-[20px] border-2 border-border-dark overflow-hidden"
             style={{ backgroundColor: record.color }}
           >
