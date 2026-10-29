@@ -45,8 +45,15 @@
 
   /* Text colors (design system ink-*). Headings / secondary text / labels. */
   --color-ink-222: #222222;
+  --color-ink-444: #444444;
   --color-ink-666: #666666;
   --color-ink-888: #888888;
+
+  /* 2px divider between sections within a page. */
+  --color-divider: #c2c4c3;
+
+  /* Plain white surface: unselected chips, tags, badges, illustration backdrop. */
+  --color-surface-white: #ffffff;
 
   /* External brand marks keep the brand's own color instead of a site accent. */
   --color-brand-github: #24292f;

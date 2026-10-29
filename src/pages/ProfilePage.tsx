@@ -91,7 +91,7 @@ export default function ProfilePage() {
 
         {/* Timeline */}
         <section className="mb-20 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
-          <p className="font-kaku font-medium text-[#d57563] text-sm tracking-[1px] mb-3">
+          <p className="font-kaku font-medium text-accent-coral text-sm tracking-[1px] mb-3">
             TIMELINE
           </p>
           <h2 className="font-maru font-bold text-accent-blue text-4xl tracking-[3px] mb-10">
@@ -108,20 +108,16 @@ export default function ProfilePage() {
                 >
                   {/* Vertical line segment (first row starts at the bubble) */}
                   <div
-                    className={`absolute left-[52px] bottom-0 w-0.5 bg-border-gray ${
+                    className={`absolute left-13 bottom-0 w-0.5 bg-border-gray ${
                       index === 0 ? "top-1/2" : "-top-8"
                     }`}
                   />
                   {/* Year bubble */}
                   <div
-                    className="shrink-0 w-[104px] flex justify-center"
+                    className="shrink-0 w-26 flex justify-center"
                   >
                     <div
-                      className={`font-maru font-bold text-base tracking-[1px] px-5 py-1.5 rounded-full border-2 border-border-dark z-10 relative ${
-                        item.isCurrent
-                          ? "bg-[#d57563] text-white"
-                          : "bg-white text-[#222]"
-                      }`}
+                      className="font-maru font-bold text-base tracking-[1px] px-5 py-1.5 rounded-full border-2 border-border-dark z-10 relative bg-white text-[#222]"
                     >
                       {item.year}
                     </div>
@@ -129,7 +125,7 @@ export default function ProfilePage() {
 
                   {/* Card */}
                   <div
-                    className="flex-1 rounded-[16px] border-2 border-border-dark p-6 mb-2"
+                    className="flex-1 rounded-2xl border-2 border-border-dark p-6 mb-2"
                     style={{ backgroundColor: item.color }}
                   >
                     <h3 className="font-maru font-bold text-[#222] text-xl tracking-[1px] mb-2">
