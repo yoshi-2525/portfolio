@@ -9,10 +9,29 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
   return (
     <div className={`flex flex-col ${className}`}>
       {blocks.map((block, i) => {
-        // Spacing is set per block: tight under a heading, wide between sections, extra wide before a heading.
+        // Spacing is set per block: tightest under a subheading, tight under a heading,
+        // wide between sections, extra wide before a heading.
         const prev = blocks[i - 1];
         const spacing =
-          i === 0 ? "" : prev.type === "heading" ? "mt-3" : block.type === "heading" ? "mt-12" : "mt-8";
+          i === 0
+            ? ""
+            : prev.type === "subheading"
+              ? "mt-1"
+              : prev.type === "heading"
+                ? "mt-3"
+                : block.type === "heading"
+                  ? "mt-12"
+                  : "mt-8";
+        if (block.type === "subheading") {
+          return (
+            <h3
+              key={i}
+              className={`font-maru font-bold text-[#222] text-lg tracking-[1px] ${spacing}`}
+            >
+              {block.text}
+            </h3>
+          );
+        }
         if (block.type === "heading") {
           return (
             <h2

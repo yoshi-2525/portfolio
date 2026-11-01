@@ -4,6 +4,7 @@ import imgLearning10UXDesign from "@/imports/images/learning/10/UXdesign.webp";
 
 export type ContentBlock =
   | { type: "heading"; text: string }
+  | { type: "subheading"; text: string }
   | { type: "body"; text: string[] }
   | { type: "image"; image: string };
 
