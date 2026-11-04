@@ -62,9 +62,10 @@
   --font-maru: "Zen Maru Gothic", sans-serif;
   --font-kaku: "Zen Kaku Gothic Antique", sans-serif;
 
-  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
-  --animate-fade-in-right: fade-in-right 0.8s ease-out both;
-  --animate-fade-in-left: fade-in-left 0.8s ease-out both;
+  /* backwards: 終了後に opacity/transform を保持し続けると、スクロール時に要素が一瞬消えることがあるため */
+  --animate-fade-in-up: fade-in-up 0.6s ease-out backwards;
+  --animate-fade-in-right: fade-in-right 0.8s ease-out backwards;
+  --animate-fade-in-left: fade-in-left 0.8s ease-out backwards;
   /* PageHeading. Site easing: cubic-bezier(0.22, 0.61, 0.35, 1). */
   --animate-line-up: line-up 0.8s cubic-bezier(0.22, 0.61, 0.35, 1) both;
   --animate-unveil: unveil 0.8s cubic-bezier(0.22, 0.61, 0.35, 1) both;

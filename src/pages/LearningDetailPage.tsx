@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import BackLink from "@/components/BackLink";
@@ -18,10 +18,14 @@ export default function LearningDetailPage() {
   const articleRef = useRef<HTMLElement>(null);
   const isFirstRender = useRef(true);
 
+  const location = useLocation();
+  const fromList = (location.state as { scrollToArticle?: boolean } | null)?.scrollToArticle;
+
   useEffect(() => {
-    // 初回表示はページ先頭、ナビゲーションで記事を切り替えたときは記事の先頭へ
-    if (isFirstRender.current || !articleRef.current) {
-      isFirstRender.current = false;
+    // URL直接アクセス時はページ先頭、一覧からの遷移やナビゲーションで記事を切り替えたときは記事の先頭へ
+    const wasFirstRender = isFirstRender.current;
+    isFirstRender.current = false;
+    if ((wasFirstRender && !fromList) || !articleRef.current) {
       window.scrollTo(0, 0);
       return;
     }
@@ -73,7 +77,8 @@ export default function LearningDetailPage() {
         <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
 
           {/* Left: navigation between records */}
-          <nav className="flex flex-col gap-4 md:sticky md:top-8">
+          {/* スマホでは記事の下に表示 */}
+          <nav className="order-2 md:order-1 flex flex-col gap-4 md:sticky md:top-8">
             {filtered.map((r) => (
               <LearningNavItem key={r.id} record={r} isActive={r.id === record.id} />
             ))}
@@ -81,7 +86,7 @@ export default function LearningDetailPage() {
           {/* Right: detail */}
           <article
             ref={articleRef}
-            className="rounded-[20px] border-2 border-border-dark overflow-hidden"
+            className="order-1 md:order-2 rounded-[20px] border-2 border-border-dark overflow-hidden"
             style={{ backgroundColor: record.color }}
           >
             <div className="h-1.5 bg-[#d57563]" />

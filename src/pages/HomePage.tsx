@@ -70,7 +70,7 @@ export default function HomePage() {
               <Link
                 key={card.to}
                 to={card.to}
-                className="relative block rounded-[20px] border-2 border-border-gray hover:border-[var(--accent)] p-12 pt-12 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all animate-fade-in-up"
+                className="relative block rounded-[20px] border-2 border-border-gray hover:border-[var(--accent)] p-12 pt-12 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-[box-shadow,border-color,translate] animate-fade-in-up"
                 style={{
                   "--accent": card.accentColor,
                   backgroundColor: card.color,
