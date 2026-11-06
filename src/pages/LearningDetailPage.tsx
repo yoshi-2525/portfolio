@@ -91,7 +91,7 @@ export default function LearningDetailPage() {
           >
             <div className="h-1.5 bg-[#d57563]" />
 
-            <div className="p-8 sm:p-10">
+            <div className="p-4 sm:p-10">
               <div className="flex items-center justify-between mb-6">
                 <span
                   className="font-maru font-bold text-xs tracking-[1px] px-3 py-1 rounded-full bg-white"

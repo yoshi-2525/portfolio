@@ -4,6 +4,13 @@
   button:not(:disabled) {
     cursor: pointer;
   }
+
+  /* PC表示のみサイト全体を90%に縮小する */
+  @media (min-width: 1024px) {
+    html {
+      zoom: 0.90;
+    }
+  }
 }
 
 @theme {

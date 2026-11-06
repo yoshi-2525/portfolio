@@ -42,7 +42,7 @@ export default function PageHeading({ eyebrow, title, illustrationSrc }: PageHea
         </div>
 
         {/* Heading: sits below the band on small screens; from md it is a notch cut into the band's lower-left corner. */}
-        <div className="mt-6 md:mt-0 md:absolute md:-left-0.5 md:-bottom-0.5 md:max-w-[min(600px,70%)] md:pt-4 md:pr-10 md:pl-0.5 md:bg-page-bg md:rounded-tr-[40px]">
+        <div className="mt-6 md:mt-0 md:absolute md:-left-0.5 md:-bottom-0.5 md:max-w-[min(600px,70%)] md:pt-4 md:pr-10 md:pl-0.5 md:bg-page-bg md:border-t-2 md:border-r-2 md:border-border-gray/60 md:shadow-[8px_-8px_16px_-8px_rgb(0_0_0/0.14),inset_0_2px_0_rgb(255_255_255/0.6),inset_-2px_0_0_rgb(255_255_255/0.6)] md:rounded-tr-[40px]">
           {heading}
         </div>
       </div>

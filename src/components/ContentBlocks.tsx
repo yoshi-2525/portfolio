@@ -43,15 +43,22 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
           );
         }
         if (block.type === "image") {
+          // The caption, when present, sits centered under the image and doubles as its alt text.
           return (
-            <img
-              key={i}
-              loading="lazy"
-              decoding="async"
-              src={block.image}
-              alt=""
-              className={`w-full rounded-[16px] border-2 border-border-dark object-cover ${spacing}`}
-            />
+            <figure key={i} className={`w-full max-w-xl mx-auto flex flex-col gap-3 ${spacing}`}>
+              <img
+                loading="lazy"
+                decoding="async"
+                src={block.image}
+                alt={block.caption ?? ""}
+                className="w-full rounded-[16px] border-2 border-border-dark object-cover"
+              />
+              {block.caption && (
+                <figcaption className="font-kaku font-medium text-ink-666 text-sm leading-relaxed tracking-[0.6px] text-center whitespace-pre-line">
+                  {block.caption}
+                </figcaption>
+              )}
+            </figure>
           );
         }
         // A body block is one section; its paragraphs sit closer together than the gap between sections.
