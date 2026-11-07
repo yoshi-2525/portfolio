@@ -61,6 +61,68 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
             </figure>
           );
         }
+        if (block.type === "quote") {
+          // Read-only surface: a 2px dark rule on the left, no shadow.
+          return (
+            <figure key={i} className={`border-l-2 border-border-dark pl-6 py-1 flex flex-col gap-3 ${spacing}`}>
+              <blockquote
+                cite={block.href}
+                className="font-kaku font-medium italic text-ink-444 text-sm leading-relaxed tracking-[0.3px] whitespace-pre-line"
+              >
+                {block.text}
+              </blockquote>
+              {block.source && (
+                <figcaption className="font-kaku font-medium text-ink-666 text-sm tracking-[0.6px]">
+                  {"— "}
+                  {block.href ? (
+                    <a
+                      href={block.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-4 hover:opacity-70 transition-opacity"
+                    >
+                      {block.source}
+                    </a>
+                  ) : (
+                    <cite className="not-italic">{block.source}</cite>
+                  )}
+                </figcaption>
+              )}
+            </figure>
+          );
+        }
+        if (block.type === "link") {
+          // Clickable surface: gray border + shadow, lifts and turns coral on hover.
+          return (
+            <a
+              key={i}
+              href={block.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group flex items-center justify-between gap-4 rounded-[16px] border-2 border-border-gray bg-surface-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-coral hover:shadow-lg ${spacing}`}
+            >
+              <span className="flex min-w-0 flex-col gap-1">
+                <span className="font-maru font-bold text-ink-222 text-base tracking-[1px]">
+                  {block.label}
+                </span>
+                {block.note && (
+                  <span className="font-kaku font-medium text-ink-666 text-sm tracking-[0.6px]">
+                    {block.note}
+                  </span>
+                )}
+                <span className="font-kaku font-medium text-ink-666 text-xs tracking-[0.5px] break-all">
+                  {block.href}
+                </span>
+              </span>
+              <span
+                aria-hidden="true"
+                className="font-maru font-bold text-accent-coral opacity-50 transition-opacity group-hover:opacity-100"
+              >
+                →
+              </span>
+            </a>
+          );
+        }
         // A body block is one section; its paragraphs sit closer together than the gap between sections.
         // "\n" inside a paragraph is rendered as a line break (whitespace-pre-line).
         return (
