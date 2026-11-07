@@ -21,7 +21,9 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
                 ? "mt-3"
                 : block.type === "heading"
                   ? "mt-12"
-                  : "mt-8";
+                  : block.type === "link"
+                    ? "mt-4"
+                    : "mt-8";
         if (block.type === "subheading") {
           return (
             <h3
