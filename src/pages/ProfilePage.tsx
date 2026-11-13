@@ -1,15 +1,31 @@
-import React from "react";
+import type { ComponentType } from "react";
+import { BookOpen, Footprints, Music } from "lucide-react";
+import YogaIcon from "@/components/icons/YogaIcon";
 import imgProfile from "@/imports/images/typing.webp";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import PageHeading from "@/components/PageHeading";
-import { cardColors } from "@/styles/palette";
+import { accentColors, cardColors, type AccentColorKey, type CardColorKey } from "@/styles/palette";
 import { pageHeadings } from "@/data/pageHeadings";
 
-const profileInfo = [
-  { label: "名前", value: "Inui Yoshitaka" },
-  { label: "できること", value: "Figma、React、デザインシステム運用、TypeScript" },
-  { label: "趣味", value: "ヨガ、読書、散歩、音楽" }
+const profile = {
+  name: "Inui Yoshitaka",
+  role: "UI/UX Designer / QA Engineer / Service Engineer",
+  intro: "新卒からIT企業でQA業務やインシデント等を行い、現在はUI/UXデザイナーになることを志しています。",
+};
+
+const skills: { label: string; color: CardColorKey & AccentColorKey }[] = [
+  { label: "Figma", color: "coral" },
+  { label: "React", color: "blue" },
+  { label: "TypeScript", color: "purple" },
+  { label: "デザインシステム運用", color: "green" },
+];
+
+const hobbies: { label: string; Icon: ComponentType<{ size?: number; "aria-hidden"?: boolean | "true" }>; color: CardColorKey & AccentColorKey }[] = [
+  { label: "ヨガ", Icon: YogaIcon, color: "green" },
+  { label: "読書", Icon: BookOpen, color: "coral" },
+  { label: "散歩", Icon: Footprints, color: "blue" },
+  { label: "音楽", Icon: Music, color: "purple" },
 ];
 
 const timeline = [
@@ -48,48 +64,85 @@ export default function ProfilePage() {
       <main className="max-w-5xl mx-auto px-8 pt-16 pb-12">
         <PageHeading {...pageHeadings.profile} />
 
-         {/* Divider */}
-        <div className="border-t-2 border-[#c2c4c3] mb-10" />
+        {/* Divider */}
+        <div className="border-t-2 border-divider mb-12" />
 
         {/* Photo + basic info */}
-        <section className="flex flex-col md:flex-row gap-16 md:items-center mb-20">
-          {/* Profile photo */}
+        <section className="flex flex-col md:flex-row gap-12 md:gap-16 items-center md:items-center mb-12">
+          {/* Profile photo: offset circle behind */}
           <div className="shrink-0 animate-fade-in-left">
-            <div
-              className="rounded-full border-3 border-border-dark overflow-hidden"
-              style={{ width: 240, height: 240 }}
-            >
-              <img
-                fetchPriority="high"
-                src={imgProfile}
-                alt="Inui Yoshitaka のプロフィール写真"
-                className="w-full h-full object-cover"
+            <div className="relative" style={{ width: 280, height: 280 }}>
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full bg-card-blue border-2 border-border-dark translate-x-3 translate-y-3"
               />
+              <div className="relative w-full h-full rounded-full border-3 border-border-dark overflow-hidden">
+                <img
+                  fetchPriority="high"
+                  src={imgProfile}
+                  alt="Inui Yoshitaka のプロフィール写真"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
 
           {/* Basic info */}
-          <div className="flex-1 animate-fade-in-right" style={{ animationDelay: "120ms" }}>
-            <div className="grid grid-cols-[120px_1fr] gap-y-4 gap-x-6">
-              {profileInfo.map(({ label, value }) => (
-                <React.Fragment key={label}>
-                  <span className="font-kaku font-medium text-[#888] text-lg tracking-[0.6px] leading-relaxed">
+          <div className="flex-1 w-full animate-fade-in-right" style={{ animationDelay: "120ms" }}>
+            <h2 className="font-maru font-bold text-ink-222 text-4xl tracking-[3px] mb-2">
+              {profile.name}
+            </h2>
+            <p className="font-kaku font-medium text-ink-666 text-base tracking-[1px] mb-4">
+              {profile.role}
+            </p>
+            <p className="font-kaku font-medium text-ink-444 text-base tracking-[0.5px] leading-relaxed mb-4">
+              {profile.intro}
+            </p>
+
+            <p className="font-kaku font-medium text-accent-coral text-sm tracking-[1px] mb-3">
+              SKILLS
+            </p>
+            <ul className="flex flex-wrap gap-2 mb-6">
+              {skills.map(({ label, color }) => (
+                <li
+                  key={label}
+                  className="font-maru font-bold text-ink-222 text-sm tracking-[1px] rounded-full border px-4 py-1.5"
+                  style={{ backgroundColor: cardColors[color], borderColor: accentColors[color] }}
+                >
+                  {label}
+                </li>
+              ))}
+            </ul>
+
+            <p className="font-kaku font-medium text-accent-coral text-sm tracking-[1px] mb-3">
+              HOBBIES
+            </p>
+            <ul className="flex flex-wrap gap-3">
+              {hobbies.map(({ label, Icon, color }) => (
+                <li
+                  key={label}
+                  className="flex flex-col items-center gap-1 w-22 rounded-2xl border border-border-dark py-3"
+                >
+                  <span
+                    className="flex items-center justify-center w-12 h-12 rounded-full"
+                    style={{ backgroundColor: cardColors[color], color: accentColors[color] }}
+                  >
+                    <Icon aria-hidden="true" size={24} />
+                  </span>
+                  <span className="font-maru font-bold text-ink-444 text-sm tracking-[1px]">
                     {label}
                   </span>
-                  <span className="font-kaku font-medium text-[#222] text-lg tracking-[0.6px] leading-relaxed">
-                    {value}
-                  </span>
-                </React.Fragment>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
         {/* Divider */}
-        <div className="border-t-2 border-[#c2c4c3] mb-20" />
+        <div className="border-t-2 border-divider mb-12" />
 
         {/* Timeline */}
-        <section className="mb-20 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
+        <section className="mb-16 animate-fade-in-up" style={{ animationDelay: "200ms" }}>
           <p className="font-kaku font-medium text-accent-coral text-sm tracking-[1px] mb-3">
             TIMELINE
           </p>
@@ -116,7 +169,7 @@ export default function ProfilePage() {
                     className="shrink-0 w-26 flex justify-center"
                   >
                     <div
-                      className="font-maru font-bold text-base tracking-[1px] px-5 py-1.5 rounded-full border-2 border-border-dark z-10 relative bg-white text-[#222]"
+                      className="font-maru font-bold text-base tracking-[1px] px-5 py-1.5 rounded-full border-2 border-border-dark z-10 relative bg-white text-ink-222"
                     >
                       {item.year}
                     </div>
@@ -127,10 +180,10 @@ export default function ProfilePage() {
                     className="flex-1 rounded-2xl border-2 border-border-dark p-6 mb-2"
                     style={{ backgroundColor: item.color }}
                   >
-                    <h3 className="font-maru font-bold text-[#222] text-xl tracking-[1px] mb-2">
+                    <h3 className="font-maru font-bold text-ink-222 text-xl tracking-[1px] mb-2">
                       {item.title}
                     </h3>
-                    <p className="font-kaku font-medium text-[#444] text-sm tracking-[0.5px] leading-relaxed">
+                    <p className="font-kaku font-medium text-ink-444 text-sm tracking-[0.5px] leading-relaxed">
                       {item.description}
                     </p>
                   </div>
