@@ -77,6 +77,39 @@
   --animate-line-up: line-up 0.8s cubic-bezier(0.22, 0.61, 0.35, 1) both;
   --animate-unveil: unveil 0.8s cubic-bezier(0.22, 0.61, 0.35, 1) both;
   --animate-settle: settle 1.2s cubic-bezier(0.22, 0.61, 0.35, 1) both;
+  /* ホームの「創作への思い」。キーワードのマーカーを左から引く／「・・・・」を順に点滅させる */
+  --animate-marker: marker 0.6s cubic-bezier(0.22, 0.61, 0.35, 1) both;
+  --animate-dot-blink: dot-blink 1.6s ease-in-out infinite both;
+}
+
+/* 文字の下半分に coral の蛍光ペン風マーカーを引く。動かすときは animate-marker と組み合わせる */
+@utility marker-coral {
+  background-image: linear-gradient(
+    transparent 62%,
+    color-mix(in srgb, var(--color-accent-coral) 30%, transparent) 62%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-inline: 0.15em;
+}
+
+@keyframes marker {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes dot-blink {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-in-up {
