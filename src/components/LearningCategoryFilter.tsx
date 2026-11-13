@@ -2,11 +2,17 @@ type LearningCategoryFilterProps = {
   categories: string[];
   active: string;
   onChange: (category: string) => void;
+  className?: string;
 };
 
-export default function LearningCategoryFilter({ categories, active, onChange }: LearningCategoryFilterProps) {
+export default function LearningCategoryFilter({
+  categories,
+  active,
+  onChange,
+  className = "mb-10",
+}: LearningCategoryFilterProps) {
   return (
-    <div className="flex flex-wrap gap-3 mb-10">
+    <div className={`flex flex-wrap gap-3 ${className}`}>
       {categories.map((cat) => (
         <button
           key={cat}

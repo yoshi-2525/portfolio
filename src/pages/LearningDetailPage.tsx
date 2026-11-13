@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import PageHeading from "@/components/PageHeading";
 import LearningCategoryFilter from "@/components/LearningCategoryFilter";
 import LearningNavItem from "@/components/LearningNavItem";
+import LearningArticleNav from "@/components/LearningArticleNav";
 import ContentBlocks from "@/components/ContentBlocks";
 import { records, categories } from "@/data/learningRecords";
 import { pageHeadings } from "@/data/pageHeadings";
@@ -15,7 +16,7 @@ export default function LearningDetailPage() {
   const { id } = useParams<{ id: string }>();
   const record = records.find((r) => r.id === Number(id));
   const [active, setActive] = useState("すべて");
-  const articleRef = useRef<HTMLElement>(null);
+  const articleRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
 
   const location = useLocation();
@@ -33,6 +34,11 @@ export default function LearningDetailPage() {
     window.scrollTo(0, top);
   }, [id]);
   const filtered = active === "すべて" ? records : records.filter((r) => r.category === active);
+
+  // 前後の記事はフィルターに関係なく ID の前後で決める。records は ID の降順なので、前＝ID が 1 つ小さい記事、次＝1 つ大きい記事
+  const index = record ? records.findIndex((r) => r.id === record.id) : -1;
+  const prevRecord = index >= 0 ? records[index + 1] : undefined;
+  const nextRecord = index > 0 ? records[index - 1] : undefined;
 
   if (!record) {
     return (
@@ -67,7 +73,13 @@ export default function LearningDetailPage() {
 
         <PageHeading {...pageHeadings.learning} />
 
-        <LearningCategoryFilter categories={categories} active={active} onChange={setActive} />
+        {/* スマホではフィルターを記事一覧のナビの上に置くので、ここは md 以上だけ */}
+        <LearningCategoryFilter
+          categories={categories}
+          active={active}
+          onChange={setActive}
+          className="hidden md:flex mb-10"
+        />
 
         <div className="mb-6">
           <BackLink to="/learning">学習記録一覧へ戻る</BackLink>
@@ -77,16 +89,24 @@ export default function LearningDetailPage() {
         <div className="grid md:grid-cols-[280px_1fr] gap-8 items-start">
 
           {/* Left: navigation between records */}
-          {/* スマホでは記事の下に表示 */}
-          <nav className="order-2 md:order-1 flex flex-col gap-4 md:sticky md:top-8">
-            {filtered.map((r) => (
-              <LearningNavItem key={r.id} record={r} isActive={r.id === record.id} />
-            ))}
-          </nav>
+          {/* スマホでは記事の下に表示し、その上にフィルターを置く */}
+          <div className="order-2 md:order-1 md:sticky md:top-8">
+            <LearningCategoryFilter
+              categories={categories}
+              active={active}
+              onChange={setActive}
+              className="md:hidden mb-6"
+            />
+            <nav className="flex flex-col gap-4">
+              {filtered.map((r) => (
+                <LearningNavItem key={r.id} record={r} isActive={r.id === record.id} />
+              ))}
+            </nav>
+          </div>
           {/* Right: detail */}
+          <div ref={articleRef} className="order-1 md:order-2 min-w-0 flex flex-col gap-6">
           <article
-            ref={articleRef}
-            className="order-1 md:order-2 rounded-[20px] border-2 border-border-dark overflow-hidden"
+            className="rounded-[20px] border-2 border-border-dark overflow-hidden"
             style={{ backgroundColor: record.color }}
           >
             <div className="h-1.5 bg-[#d57563]" />
@@ -111,6 +131,9 @@ export default function LearningDetailPage() {
               <ContentBlocks blocks={record.content} className="border-t-2 border-border-dark pt-8" />
             </div>
           </article>
+
+          <LearningArticleNav prev={prevRecord} next={nextRecord} />
+          </div>
 
         </div>
       </main>
