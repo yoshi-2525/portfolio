@@ -99,6 +99,12 @@ const record: LearningRecordInput = {
         "今回は「①システム状態の視認性」と「②システムと現実世界の一致」についてまとめてみました。次回以降もユーザビリティ10原則とHuman Interface Guidelinesの比較を続けていきます。",
       ],
     },
+    {
+      type: "link",
+      href: "/learning/17",
+      label: "次回：ユーザビリティ10原則とHIG②",
+      note: "「ユーザーの制御と自由」と「一貫性と標準」",
+    },
   ],
 };
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { ContentBlock } from "@/data/learningRecords";
 
 type ContentBlocksProps = {
@@ -95,14 +96,11 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
         }
         if (block.type === "link") {
           // Clickable surface: gray border + shadow, lifts and turns coral on hover.
-          return (
-            <a
-              key={i}
-              href={block.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group flex items-center justify-between gap-4 rounded-[16px] border-2 border-border-gray bg-surface-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-coral hover:shadow-lg ${spacing}`}
-            >
+          // A href starting with "/" is a page on this site: same tab, no URL shown.
+          const isInternal = block.href.startsWith("/");
+          const cardClassName = `group flex items-center justify-between gap-4 rounded-[16px] border-2 border-border-gray bg-surface-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent-coral hover:shadow-lg ${spacing}`;
+          const cardContent = (
+            <>
               <span className="flex min-w-0 flex-col gap-1">
                 <span className="font-maru font-bold text-ink-222 text-base tracking-[1px]">
                   {block.label}
@@ -112,9 +110,11 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
                     {block.note}
                   </span>
                 )}
-                <span className="font-kaku font-medium text-ink-666 text-xs tracking-[0.5px] break-all">
-                  {block.href}
-                </span>
+                {!isInternal && (
+                  <span className="font-kaku font-medium text-ink-666 text-xs tracking-[0.5px] break-all">
+                    {block.href}
+                  </span>
+                )}
               </span>
               <span
                 aria-hidden="true"
@@ -122,6 +122,21 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
               >
                 →
               </span>
+            </>
+          );
+          return isInternal ? (
+            <Link key={i} to={block.href} className={cardClassName}>
+              {cardContent}
+            </Link>
+          ) : (
+            <a
+              key={i}
+              href={block.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cardClassName}
+            >
+              {cardContent}
             </a>
           );
         }

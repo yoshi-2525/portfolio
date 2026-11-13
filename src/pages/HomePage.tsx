@@ -1,13 +1,13 @@
-import React, { type CSSProperties } from "react";
+import { type CSSProperties } from "react";
 import { Link } from "react-router";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WorkCard from "@/components/WorkCard";
 import { cardColors, accentColors } from "@/styles/palette";
-import imgProfile from "@/imports/1920WLight/bdbe7ab60c7cedfdf13d0d0825db141c6ad80d55.webp";
 import { pageHeadings } from "@/data/pageHeadings";
 import { works } from "@/data/works";
 import homeImg from "@/imports/images/typing.webp";
+import heroTitleImg from "@/imports/images/hero-title.svg";
 
 const navCardConfig = [
   { key: "learning", color: cardColors.blue, accentColor: accentColors.blue },
@@ -32,14 +32,24 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-8 pt-16 pb-8">
           {/* Hero */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 mb-16">
-            <h1 className="font-maru font-bold text-accent-blue text-4xl sm:text-5xl lg:text-6xl tracking-[4px] leading-tight shrink-0 animate-fade-in-left">
-              <span className="block whitespace-nowrap">ただひたすらに</span>
-              <span className="block whitespace-nowrap">ものを創る</span>
+            {/* 見出しはぴょすふぉんとふりぃの字形を SVG にしたもの。フォントファイルは配布できないため画像で使う。
+                色は currentColor（text-accent-blue）を mask で塗る。文言を変えるときは SVG を作り直す。 */}
+            <h1 className="text-accent-blue text-6xl sm:text-7xl lg:text-8xl shrink-0 animate-fade-in-left">
+              <span className="sr-only">とにかくものを創りつづける</span>
+              <span
+                aria-hidden="true"
+                className="block h-[2.62em] aspect-[452.3/262.1] bg-current"
+                style={{
+                  maskImage: `url(${heroTitleImg})`,
+                  maskSize: "contain",
+                  maskRepeat: "no-repeat",
+                }}
+              />
             </h1>
 
 
             <div className="relative w-full max-w-xl mx-auto md:mx-0 md:shrink-0 animate-fade-in-right" style={{ animationDelay: "120ms" }}>
-              <div className="rounded-[24px] border-1 border-border-dark overflow-hidden">
+              <div className="rounded-3xl border border-border-dark overflow-hidden">
                 <img
                   fetchPriority="high"
                   src={homeImg}
@@ -50,8 +60,8 @@ export default function HomePage() {
             </div>
           </div>
 
-            <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-12 my-12 p-8 rounded-[24px] bg-[#FAFAFA] border border-border-dark animate-fade-in-left" style={{ animationDelay: "150ms" }}>
-              <h2 className="font-maru font-bold text-[#d57563] text-4xl tracking-[3px] shrink-0">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-12 my-12 p-8 rounded-3xl bg-[#FAFAFA] border border-border-dark animate-fade-in-left" style={{ animationDelay: "150ms" }}>
+              <h2 className="font-maru font-bold text-accent-coral text-4xl tracking-[3px] shrink-0">
                 創作への思い
               </h2>
               <div className="font-kaku font-medium text-[#222] text-base leading-loose tracking-[0.8px] max-w-3xl">
@@ -62,7 +72,7 @@ export default function HomePage() {
             </div>
 
         {/* Divider */}
-        <div className="border-t-2 border-[#c2c4c3] my-10" />            
+        <div className="border-t-2 border-divider my-10" />            
 
           {/* Quick links */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 mb-4 py-8">
@@ -70,18 +80,18 @@ export default function HomePage() {
               <Link
                 key={card.to}
                 to={card.to}
-                className="relative block rounded-[20px] border-2 border-border-gray hover:border-[var(--accent)] p-12 pt-12 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-[box-shadow,border-color,translate] animate-fade-in-up"
+                className="relative block rounded-[20px] border-2 border-border-gray hover:border-(--accent) p-12 pt-12 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-[box-shadow,border-color,translate] animate-fade-in-up"
                 style={{
                   "--accent": card.accentColor,
                   backgroundColor: card.color,
                   animationDelay: `${index * 100 + 120}ms`,
                 } as CSSProperties}
               >
-                <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#d57563] text-white text-base font-maru font-bold tracking-[1.1px] px-6 py-2 rounded-full whitespace-nowrap">
+                <span className="absolute -top-5 left-1/2 -translate-x-1/2 bg-accent-coral text-white text-base font-maru font-bold tracking-[1.1px] px-6 py-2 rounded-full whitespace-nowrap">
                   {card.label}
                 </span>
 
-                <div className="border-1 border-border-dark rounded-lg aspect-[16/9] mb-6 overflow-hidden">
+                <div className="border border-border-dark rounded-lg aspect-video mb-6 overflow-hidden">
                   <img loading="lazy" decoding="async" src={card.image} alt="" className="w-full h-full object-cover" />
                 </div>
 
@@ -98,7 +108,7 @@ export default function HomePage() {
 
         {/* Divider */}
         <div className="max-w-6xl mx-auto px-8">
-          <div className="border-t-2 border-[#c2c4c3] my-2" />
+          <div className="border-t-2 border-divider my-2" />
         </div>
 
         {/* Creation thoughts + featured works */}

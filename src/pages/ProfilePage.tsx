@@ -8,7 +8,6 @@ import { pageHeadings } from "@/data/pageHeadings";
 
 const profileInfo = [
   { label: "名前", value: "Inui Yoshitaka" },
-  { label: "なりたい職業", value: "UI/UXデザイナー、アプリケーションエンジニア" },
   { label: "できること", value: "Figma、React、デザインシステム運用、TypeScript" },
   { label: "趣味", value: "ヨガ、読書、散歩、音楽" }
 ];

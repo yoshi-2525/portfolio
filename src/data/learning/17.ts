@@ -13,6 +13,18 @@ const record: LearningRecordInput = {
         "前回に引き続き、今回もニールセンのユーザビリティ10原則とAppleのHIGを照らし合わせながら、それぞれの原則が具体的にどのようなUIとして表現されているのかを考えていきます。今回は③ユーザーの制御と自由と④一貫性と標準をまとめていきます。",
       ],
     },
+    {
+      type: "link",
+      href: "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      label: "10 Usability Heuristics for User Interface Design",
+      note: "Nielsen Norman Group",
+    },
+    {
+      type: "link",
+      href: "https://developer.apple.com/jp/design/human-interface-guidelines/",
+      label: "ヒューマンインターフェイスガイドライン",
+      note: "Apple",
+    },
     { type: "heading", text: "③ ユーザーの制御と自由" },
     {
       type: "body",
@@ -88,6 +100,12 @@ const record: LearningRecordInput = {
       text: [
         "今回は「③ユーザーの制御と自由」と「④一貫性と標準」について考えながらまとめてみました。特にOOUI的なアプローチやデザインシステムの活用など、現代のUI設計の実務にどう落とし込むかという視点を持つことが重要だと感じています。次回も引き続き、残りの原則をまとめていきます。",
       ],
+    },
+    {
+      type: "link",
+      href: "/learning/19",
+      label: "次回：ユーザビリティ10原則とHIG③",
+      note: "「エラーの予防」と「記憶に頼らない操作」",
     },
   ],
 };
