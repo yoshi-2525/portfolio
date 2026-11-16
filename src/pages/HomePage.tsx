@@ -221,7 +221,7 @@ export default function HomePage() {
                 <h2 className="font-maru font-bold text-accent-blue text-2xl tracking-[1px] mb-2">
                   {card.title}
                 </h2>
-                <p className="font-kaku font-medium text-[#222] text-base tracking-[0.5px] leading-relaxed">
+                <p className="font-kaku font-medium text-ink-222 text-base tracking-[0.5px] leading-relaxed">
                   {card.description.join("")}
                 </p>
               </Link>

@@ -37,7 +37,7 @@ export default function DreamCard({ dream, index, reverse = false }: DreamCardPr
             {number}
           </span>
           <div className={reverse ? "text-right" : undefined}>
-            <h2 className="font-maru font-bold text-[#222] text-2xl tracking-[1.5px]">
+            <h2 className="font-maru font-bold text-ink-222 text-2xl tracking-[1.5px]">
               {dream.title}
             </h2>
             <p
@@ -51,7 +51,7 @@ export default function DreamCard({ dream, index, reverse = false }: DreamCardPr
 
         {/* Description */}
         <div className={reverse ? "md:order-1" : "md:order-2"}>
-          <p className="font-kaku font-medium text-[#333] text-base leading-relaxed tracking-[0.5px]">
+          <p className="font-kaku font-medium text-ink-333 text-base leading-relaxed tracking-[0.5px]">
             {dream.description}
           </p>
         </div>

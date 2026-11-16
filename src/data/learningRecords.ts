@@ -5,7 +5,7 @@ export type ContentBlock =
   | { type: "heading"; text: string }
   | { type: "subheading"; text: string }
   | { type: "body"; text: string[] }
-  | { type: "image"; image: string; caption?: string }
+  | { type: "image"; image: string; caption?: string; wide?: boolean }
   // Quoted passage from another source. `source` names where it comes from; `href` links that name.
   | { type: "quote"; text: string; source?: string; href?: string }
   // External reference shown as a clickable card. `note` is an optional one-line description.

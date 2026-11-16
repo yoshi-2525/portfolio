@@ -45,7 +45,7 @@ export default function LearningDetailPage() {
       <div className="min-h-screen bg-page-bg">
         <SiteHeader />
         <main className="max-w-3xl mx-auto px-8 py-24 text-center">
-          <p className="font-maru font-bold text-[#aaa] text-xl tracking-[1px] mb-8">
+          <p className="font-maru font-bold text-ink-aaa text-xl tracking-[1px] mb-8">
             該当する記録が見つかりませんでした
           </p>
           <BackLink to="/learning">学習記録一覧へ戻る</BackLink>
@@ -109,7 +109,7 @@ export default function LearningDetailPage() {
             className="rounded-[20px] border-2 border-border-dark overflow-hidden"
             style={{ backgroundColor: record.color }}
           >
-            <div className="h-1.5 bg-[#d57563]" />
+            <div className="h-1.5 bg-accent-coral" />
 
             <div className="p-4 sm:p-10">
               <div className="flex items-center justify-between mb-6">
@@ -119,12 +119,12 @@ export default function LearningDetailPage() {
                 >
                   {record.category}
                 </span>
-                <span className="font-kaku font-medium text-xs text-[#666] tracking-[0.5px]">
+                <span className="font-kaku font-medium text-xs text-ink-666 tracking-[0.5px]">
                   {record.date}
                 </span>
               </div>
 
-              <h1 className="font-maru font-bold text-[#222] text-3xl tracking-[1.5px] mb-6 leading-snug">
+              <h1 className="font-maru font-bold text-ink-222 text-3xl tracking-[1.5px] mb-6 leading-snug">
                 {record.title}
               </h1>
 

@@ -19,8 +19,8 @@ export default function LearningCategoryFilter({
           onClick={() => onChange(cat)}
           className={`font-maru font-bold px-5 py-2 rounded-full border-2 text-sm tracking-[0.8px] transition-all ${
             active === cat
-              ? "bg-[#d57563] border-[#d57563] text-white"
-              : "bg-white text-[#666] border-border-gray hover:border-[#d57563] hover:text-[#d57563]"
+              ? "bg-accent-coral border-accent-coral text-white"
+              : "bg-white text-ink-666 border-border-gray hover:border-accent-coral hover:text-accent-coral"
           }`}
         >
           {cat}

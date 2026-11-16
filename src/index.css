@@ -52,9 +52,13 @@
 
   /* Text colors (design system ink-*). Headings / secondary text / labels. */
   --color-ink-222: #222222;
+  /* Body text in article blocks and card descriptions. */
+  --color-ink-333: #333333;
   --color-ink-444: #444444;
   --color-ink-666: #666666;
   --color-ink-888: #888888;
+  /* Faint labels: inactive nav numbers, "not found" messages. */
+  --color-ink-aaa: #aaaaaa;
 
   /* 2px divider between sections within a page. */
   --color-divider: #c2c4c3;

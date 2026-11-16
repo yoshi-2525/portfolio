@@ -18,7 +18,7 @@ function ArticleLink({ record, label, align }: { record: LearningRecord; label: 
       }`}
       style={{ "--accent": record.accentColor } as CSSProperties}
     >
-      <span className="font-maru font-bold text-[10px] md:text-xs tracking-[1px] block mb-0.5 md:mb-1" style={{ color: "#aaa" }}>
+      <span className="font-maru font-bold text-[10px] md:text-xs tracking-[1px] block mb-0.5 md:mb-1" style={{ color: "var(--color-ink-aaa)" }}>
         {label}
       </span>
       <span className="font-maru font-bold text-sm tracking-[0.8px] leading-snug block text-ink-666 truncate">

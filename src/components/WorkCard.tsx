@@ -43,12 +43,12 @@ export default function WorkCard({ work, index = 0 }: WorkCardProps) {
               >
                 {work.category}
               </span>
-              <span className="font-kaku font-medium text-xs text-[#888] tracking-[0.5px]">
+              <span className="font-kaku font-medium text-xs text-ink-888 tracking-[0.5px]">
                 {work.year}
               </span>
             </div>
 
-            <h2 className="font-maru font-bold text-[#222] text-lg leading-7 h-14 line-clamp-2 tracking-[1px] md:text-3xl md:leading-9 md:h-auto md:line-clamp-1 md:tracking-[1.5px] mb-1">
+            <h2 className="font-maru font-bold text-ink-222 text-lg leading-7 h-14 line-clamp-2 tracking-[1px] md:text-3xl md:leading-9 md:h-auto md:line-clamp-1 md:tracking-[1.5px] mb-1">
               {work.title}
             </h2>
             <p
@@ -58,7 +58,7 @@ export default function WorkCard({ work, index = 0 }: WorkCardProps) {
               {work.subtitle}
             </p>
 
-            <p className="max-md:hidden font-kaku font-medium text-[#333] text-base leading-relaxed tracking-[0.5px] mb-5 line-clamp-3 min-h-[4.875em]">
+            <p className="max-md:hidden font-kaku font-medium text-ink-333 text-base leading-relaxed tracking-[0.5px] mb-5 line-clamp-3 min-h-[4.875em]">
               {work.listDescription}
             </p>
           </div>

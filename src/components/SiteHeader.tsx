@@ -19,7 +19,7 @@ export default function SiteHeader() {
     <header className="relative flex items-center justify-between px-8 py-4 border-b-2 border-border-gray bg-page-bg">
       <Link
         to="/"
-        className="order-2 md:order-1 font-maru font-bold text-[#222] text-2xl tracking-[1.76px]"
+        className="order-2 md:order-1 font-maru font-bold text-ink-222 text-2xl tracking-[1.76px]"
       >
         わたしのポートフォリオ
       </Link>
@@ -30,8 +30,8 @@ export default function SiteHeader() {
           <Link
             key={label}
             to={to}
-            className={`font-maru font-bold text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
-              isCurrent(to) ? "text-[#d57563]" : "text-[#222]"
+            className={`font-maru font-bold text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-accent-coral transition-colors ${
+              isCurrent(to) ? "text-accent-coral" : "text-ink-222"
             }`}
           >
             {label}
@@ -47,9 +47,9 @@ export default function SiteHeader() {
         aria-label="メニューを開く"
         aria-expanded={isMenuOpen}
       >
-        <span className="block w-6 h-0.5 bg-[#222]" />
-        <span className="block w-6 h-0.5 bg-[#222]" />
-        <span className="block w-6 h-0.5 bg-[#222]" />
+        <span className="block w-6 h-0.5 bg-ink-222" />
+        <span className="block w-6 h-0.5 bg-ink-222" />
+        <span className="block w-6 h-0.5 bg-ink-222" />
       </button>
 
       {/* Overlay */}
@@ -70,7 +70,7 @@ export default function SiteHeader() {
         <button
           type="button"
           onClick={() => setIsMenuOpen(false)}
-          className="self-start p-2 mb-4 text-2xl text-[#222]"
+          className="self-start p-2 mb-4 text-2xl text-ink-222"
           aria-label="メニューを閉じる"
         >
           ×
@@ -80,8 +80,8 @@ export default function SiteHeader() {
             key={label}
             to={to}
             onClick={() => setIsMenuOpen(false)}
-            className={`font-maru font-bold text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-[#d57563] transition-colors ${
-              isCurrent(to) ? "text-[#d57563]" : "text-[#222]"
+            className={`font-maru font-bold text-[17.6px] tracking-[1.1px] px-3 py-3 hover:text-accent-coral transition-colors ${
+              isCurrent(to) ? "text-accent-coral" : "text-ink-222"
             }`}
           >
             {label}

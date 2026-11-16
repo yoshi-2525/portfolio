@@ -40,18 +40,18 @@ export default function LearningRecordCard({ record, index = 0 }: LearningRecord
           >
             {record.category}
           </span>
-          <span className="font-kaku font-medium text-xs text-[#666] tracking-[0.5px]">
+          <span className="font-kaku font-medium text-xs text-ink-666 tracking-[0.5px]">
             {record.date}
           </span>
         </div>
 
         <div className="flex items-center text-2xl leading-snug min-h-[2lh] mb-3">
-          <h2 className="font-maru font-bold text-[#222] tracking-[1px] line-clamp-2">
+          <h2 className="font-maru font-bold text-ink-222 tracking-[1px] line-clamp-2">
             {record.title}
           </h2>
         </div>
 
-        <p className="font-kaku font-medium text-[#444] text-sm tracking-[0.5px] leading-relaxed mb-5 line-clamp-3 min-h-[3lh]">
+        <p className="font-kaku font-medium text-ink-444 text-sm tracking-[0.5px] leading-relaxed mb-5 line-clamp-3 min-h-[3lh]">
           {record.description}
         </p>
 

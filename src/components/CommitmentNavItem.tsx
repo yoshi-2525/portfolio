@@ -32,13 +32,13 @@ export default function CommitmentNavItem({ principle, isActive, onClick, index 
       >
       <span
         className="font-maru font-bold text-xs tracking-[1px] block mb-1"
-        style={{ color: isActive ? principle.accentColor : "#aaa" }}
+        style={{ color: isActive ? principle.accentColor : "var(--color-ink-aaa)" }}
       >
         {principle.no}
       </span>
       <span
         className="font-maru font-bold text-base tracking-[0.8px] block"
-        style={{ color: isActive ? "#222" : "#666" }}
+        style={{ color: isActive ? "var(--color-ink-222)" : "var(--color-ink-666)" }}
       >
         {principle.title}
       </span>

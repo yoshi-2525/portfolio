@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { WorksContentCard } from "@/data/works";
+import ZoomableImage from "@/components/ZoomableImage";
 
 type WorkProcessSliderProps = {
   process: WorksContentCard[];
@@ -12,6 +13,8 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
   const [isDragging, setIsDragging] = useState(false);
   const viewportRef = useRef<HTMLDivElement>(null);
   const dragStartX = useRef(0);
+  // スワイプ直後のクリックで画像の拡大表示が開かないようにする
+  const didDrag = useRef(false);
   const activeCardRef = useRef(activeCard);
   activeCardRef.current = activeCard;
 
@@ -22,6 +25,7 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
     // マウスではテキストを選択・コピーできるようにドラッグ移動しない
     if (e.pointerType === "mouse") return;
     dragStartX.current = e.clientX;
+    didDrag.current = false;
     setIsDragging(true);
     e.currentTarget.setPointerCapture(e.pointerId);
   };
@@ -29,6 +33,7 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!isDragging) return;
     const dx = e.clientX - dragStartX.current;
+    if (Math.abs(dx) > 5) didDrag.current = true;
     // 端のカードでは引っ張りに抵抗をつける
     const atEdge = (dx > 0 && activeCard === 0) || (dx < 0 && activeCard === lastIndex);
     setDragX(atEdge ? dx * 0.3 : dx);
@@ -102,6 +107,12 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
           onPointerMove={handlePointerMove}
           onPointerUp={endDrag}
           onPointerCancel={endDrag}
+          onClickCapture={(e) => {
+            if (didDrag.current) {
+              e.stopPropagation();
+              didDrag.current = false;
+            }
+          }}
         >
           <div
             className={`flex gap-4 ease-out ${isDragging ? "" : "transition-transform duration-[400ms]"}`}
@@ -114,22 +125,34 @@ export default function WorkProcessSlider({ process, accentColor }: WorkProcessS
                   i === activeCard ? "opacity-100" : "opacity-50 shadow-lg"
                 }`}
               >
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={card.image}
-                  alt=""
-                  draggable={false}
-                  className="w-full aspect-[16/9] object-cover border-b-2 border-border-dark"
-                />
+                {i === activeCard ? (
+                  <ZoomableImage
+                    loading="lazy"
+                    decoding="async"
+                    src={card.image}
+                    alt={card.heading}
+                    draggable={false}
+                    wrapperClassName="border-b-2 border-border-dark"
+                    className="w-full aspect-[16/9] object-contain bg-white"
+                  />
+                ) : (
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src={card.image}
+                    alt=""
+                    draggable={false}
+                    className="w-full aspect-[16/9] object-contain bg-white border-b-2 border-border-dark"
+                  />
+                )}
                 <div className="p-6 flex flex-col gap-5 flex-1">
-                  <h3 className="font-maru font-bold text-[#222] text-lg tracking-[1px]">
+                  <h3 className="font-maru font-bold text-ink-222 text-lg tracking-[1px]">
                     {card.heading}
                   </h3>
                   {card.body.map((paragraph, j) => (
                     <p
                       key={j}
-                      className="font-kaku font-medium text-[#333] text-base leading-loose tracking-[0.6px]"
+                      className="font-kaku font-medium text-ink-333 text-base leading-loose tracking-[0.6px]"
                     >
                       {paragraph}
                     </p>

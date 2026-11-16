@@ -26,7 +26,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
 
       {/* Body */}
       <div className="px-8 py-8">
-        <h2 className="font-maru font-bold text-[#222] text-4xl tracking-[2px] mb-8 leading-tight">
+        <h2 className="font-maru font-bold text-ink-222 text-4xl tracking-[2px] mb-8 leading-tight">
           {principle.title}
         </h2>
 
@@ -35,7 +35,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
           className="border-l-4 pl-5 mb-8"
           style={{ borderColor: principle.accentColor }}
         >
-          <p className="font-kaku font-medium text-[#333] text-lg leading-relaxed tracking-[0.6px]">
+          <p className="font-kaku font-medium text-ink-333 text-lg leading-relaxed tracking-[0.6px]">
             {principle.summary}
           </p>
         </div>
@@ -45,7 +45,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
           {principle.body.map((para, i) => (
             <p
               key={i}
-              className="font-kaku font-medium text-[#333] text-base leading-loose tracking-[0.5px]"
+              className="font-kaku font-medium text-ink-333 text-base leading-loose tracking-[0.5px]"
             >
               {para}
             </p>
@@ -66,7 +66,7 @@ export default function CommitmentCard({ principle, index, total, onPrev, onNext
         ) : (
           <span />
         )}
-        <span className="font-kaku font-medium text-xs text-[#888] tracking-[1px]">
+        <span className="font-kaku font-medium text-xs text-ink-888 tracking-[1px]">
           {index + 1} / {total}
         </span>
         {index < total - 1 ? (

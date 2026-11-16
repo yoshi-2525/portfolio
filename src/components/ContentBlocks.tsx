@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import type { ContentBlock } from "@/data/learningRecords";
+import ZoomableImage from "@/components/ZoomableImage";
 
 type ContentBlocksProps = {
   blocks: ContentBlock[];
@@ -29,7 +30,7 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
           return (
             <h3
               key={i}
-              className={`font-maru font-bold text-[#222] text-lg tracking-[1px] ${spacing}`}
+              className={`font-maru font-bold text-ink-222 text-lg tracking-[1px] ${spacing}`}
             >
               {block.text}
             </h3>
@@ -39,7 +40,7 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
           return (
             <h2
               key={i}
-              className={`font-maru font-bold text-[#222] text-2xl tracking-[1px] ${spacing}`}
+              className={`font-maru font-bold text-ink-222 text-2xl tracking-[1px] ${spacing}`}
             >
               {block.text}
             </h2>
@@ -47,9 +48,10 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
         }
         if (block.type === "image") {
           // The caption, when present, sits centered under the image and doubles as its alt text.
+          // "wide" images (e.g. app screenshots) span the full content column instead of max-w-xl.
           return (
-            <figure key={i} className={`w-full max-w-xl mx-auto flex flex-col gap-3 ${spacing}`}>
-              <img
+            <figure key={i} className={`w-full ${block.wide ? "" : "max-w-xl"} mx-auto flex flex-col gap-3 ${spacing}`}>
+              <ZoomableImage
                 loading="lazy"
                 decoding="async"
                 src={block.image}
@@ -147,7 +149,7 @@ export default function ContentBlocks({ blocks, className = "" }: ContentBlocksP
             {block.text.map((paragraph, j) => (
               <p
                 key={j}
-                className="font-kaku font-medium text-[#333] text-base leading-loose tracking-[0.6px] whitespace-pre-line"
+                className="font-kaku font-medium text-ink-333 text-base leading-loose tracking-[0.6px] whitespace-pre-line"
               >
                 {paragraph}
               </p>
