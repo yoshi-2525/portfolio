@@ -1,13 +1,15 @@
 import type { Work } from "@/data/works";
 import { cardColors, accentColors } from "@/styles/palette";
-// 仮の画像。画像ができたら src/imports/images/works/dashboard/ に置き、下の import を差し替える
-import imgPlaceholder from "@/imports/1920WLight/10fd8431ae6d9c2d06134d8fb03827958358aaad.webp";
+import imgDashboardKeyList from "@/imports/images/works/dashboard/kv-1200x900.webp";
+import imgDashboardKeyDetail from "@/imports/images/works/dashboard/kv-2400x800.webp";
 import imgDashboardTimeline from "@/imports/images/works/dashboard/timeline.webp";
 import imgDashboardCalendar from "@/imports/images/works/dashboard/calendar.webp";
 import imgDashboardLoad from "@/imports/images/works/dashboard/load.webp";
 import imgDashboardList from "@/imports/images/works/dashboard/list.webp";
 import imgDashboardPersona from "@/imports/images/works/dashboard/persona.png";
 import imgDashboardCustomerJourney from "@/imports/images/works/dashboard/customerjourney.png";
+import imgDashboardScreenDesign from "@/imports/images/works/dashboard/screenDesign.webp";
+import imgDashboardKaizen from "@/imports/images/works/dashboard/kaizen.webp";
 
 const work: Work = {
   id: 3,
@@ -15,8 +17,8 @@ const work: Work = {
   subtitle: "Inquiry Dashboard",
   category: "アプリ開発",
   year: "2026",
-  listImage: imgPlaceholder,
-  detailImage: imgPlaceholder,
+  listImage: imgDashboardKeyList,
+  detailImage: imgDashboardKeyDetail,
   // githubUrl: "https://github.com/yoshi-2525/",
   listDescription: "（作品一覧のカードに表示する短い紹介文）",
   detailDescription: [
@@ -74,13 +76,17 @@ const work: Work = {
     },
     {
       heading: "画面設計",
-      image: imgDashboardCustomerJourney,
-      body: ["これらの仮説課題に対し、2つのアプローチでUIを設計しました。まずメンバーごとの負荷状況を直感的に把握できるよう、各自の担当件数をグラフで可視化したダッシュボードを設計しました。さらに滞留している問い合わせの原因を素早く特定するため、ステータス変更やコメントの履歴を時系列で表示するタイムラインも設計し、個々の問い合わせの全体的な流れを視覚的に追えるようにしています。なおこれら2つの画面はClaudeと連携しながらベースを作成し、ある程度完成したらClaude Codeで実装しています。"],
+      image: imgDashboardScreenDesign,
+      body: ["これらの仮説課題に対し、2つのアプローチでUIを設計しました。まずメンバーごとの負荷状況を直感的に把握できるよう、各自の担当件数をグラフで可視化したダッシュボードを設計しました。",
+            "さらに滞留している問い合わせの原因を素早く特定するため、ステータス変更やコメントの履歴を時系列で表示するタイムラインも設計し、個々の問い合わせの全体的な流れを視覚的に追えるようにしています。なおこれら2つの画面はClaudeと連携しながらベースを作成し、ある程度完成したらClaude Codeで実装しています。"
+      ],
     },
     {
       heading: "継続的な改善",
-      image: imgDashboardCustomerJourney,
-      body: ["実装したプロトタイプを実際に操作しながら、使い勝手に違和感を持った箇所はその都度改善を重ね、アプリの操作性を高めました。具体的には画面遷移すべき箇所へ適切なリンクを設置したほか、関連し合う項目同士を近づけ、関係のない項目とは適度な余白で距離を離すことで、情報のまとまりを明確にしています。また私自身の業務経験から「担当者やステータスで絞り込んで検索したい」というニーズが高いと判断し、問い合わせ一覧にフィルタ機能を追加しました。さらにタイムラインは時系列の連続性を保ったまま閲覧できるよう、横スクロールで日付を直感的に移動できるデザインを採用しています。"],
+      image: imgDashboardKaizen,
+      body: ["実装したプロトタイプを実際に操作しながら、使い勝手に違和感を持った箇所はその都度改善を重ね、アプリの操作性を高めました。具体的には画面遷移すべき箇所へ適切なリンクを設置したほか、関連し合う項目同士を近づけ、関係のない項目とは適度な余白で距離を離すことで、情報のまとまりを明確にしています。",
+        "また私自身の業務経験から「担当者やステータスで絞り込んで検索したい」というニーズが高いと判断し、問い合わせ一覧にフィルタ機能を追加しました。さらにタイムラインは時系列の連続性を保ったまま閲覧できるよう、横スクロールで日付を直感的に移動できるデザインを採用しています。"
+      ],
     },    
   ],
   color: cardColors.purple,
