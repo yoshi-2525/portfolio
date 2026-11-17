@@ -6,8 +6,8 @@ import imgDashboardTimeline from "@/imports/images/works/dashboard/timeline.webp
 import imgDashboardCalendar from "@/imports/images/works/dashboard/calendar.webp";
 import imgDashboardLoad from "@/imports/images/works/dashboard/load.webp";
 import imgDashboardList from "@/imports/images/works/dashboard/list.webp";
-import imgDashboardPersona from "@/imports/images/works/dashboard/persona.png";
-import imgDashboardCustomerJourney from "@/imports/images/works/dashboard/customerjourney.png";
+import imgDashboardPersona from "@/imports/images/works/dashboard/persona.webp";
+import imgDashboardCustomerJourney from "@/imports/images/works/dashboard/customerjourney.webp";
 import imgDashboardScreenDesign from "@/imports/images/works/dashboard/screenDesign.webp";
 import imgDashboardKaizen from "@/imports/images/works/dashboard/kaizen.webp";
 
